@@ -1,0 +1,42 @@
+{
+    "Student": [
+        {
+            "name": "Nien",
+            "age": 20,
+            "email": "duynien34@gmail.com"
+        },
+        {
+            "name": "B",
+            "age": 20,
+            "email": "B@gmail.com"
+        },
+        {
+            "name": "C",
+            "age": 20,
+            "email": "C34@gmail.com"
+        },
+        {
+            "name": "D",
+            "age": 20,
+            "email": "d34@gmail.com"
+        }
+    ],
+    "Accounts": [
+        {
+            "user": "a@gmail.com",
+            "password": "1"
+        },
+        {
+            "user": "b@gmail.com",
+            "password": "1234"
+        },
+        {
+            "user": "c@gmail.com",
+            "password": "1234"
+        },
+        {
+            "user": "d@gmail.com",
+            "password": "1234"
+        }
+    ]
+}
