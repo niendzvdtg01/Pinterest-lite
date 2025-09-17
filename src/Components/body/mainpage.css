@@ -1,7 +1,6 @@
 .custom-form {
     flex-direction: column;
     align-items: center;
-    /* justify-content: center; */
     width: 450px;
     margin: 50px;
     border: 1px solid #ccc;
@@ -30,4 +29,16 @@
     font-size: 70px;
     text-align: center;
     font-weight: 700;
+}
+
+.Carousel {
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    object-fit: contain;
+    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

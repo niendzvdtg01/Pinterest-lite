@@ -1,7 +1,8 @@
 import { DatePicker } from 'antd';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Login from './Components/body/mainpage';
 // import { useState } from 'react';
+import Body from './Components/body/Body';
+
 function App() {
 
   // const [name, setName] = useState('')
@@ -13,7 +14,8 @@ function App() {
   return (
     <main>
       <Routes>
-        <Route path="/" element={<Login />} />
+        {/* <Route path="/" element={<Login />} /> */}
+        <Route path='/' element={<Body />} />
       </Routes>
     </main>
     // <>
