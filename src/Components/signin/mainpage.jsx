@@ -38,7 +38,8 @@ export default function Login() {
     return (
         <div style={{
             backgroundImage: `linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url(${BG})`,
-            height: "90vh",
+            width: "100%",
+            height: "100vh",
             backgroundSize: "cover",
             backgroundRepeat: "no-repeat",
             objectFit: "contain"

@@ -1,27 +1,15 @@
 import { DatePicker } from 'antd';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-// import { useState } from 'react';
-import Body from './Components/body/Body';
+
+import ControlledCarousel from './Components/signin/MainInsprition';
+import Login from './Components/signin/mainpage'
+import Body from './Components/signin/Body';
 
 function App() {
-
-  // const [name, setName] = useState('')
-
-  // const handleChange = (e) => {
-  //   setName(e.target.value)
-  // }
-
   return (
-    <main>
-      <Routes>
-        {/* <Route path="/" element={<Login />} /> */}
-        <Route path='/' element={<Body />} />
-      </Routes>
-    </main>
-    // <>
-    //   <input type="text" name='name' onChange={handleChange} />
-    //   {name}
-    // </>
+    <Routes>
+      <Route path='/' element={<Body />} />
+    </Routes>
   )
 }
 
