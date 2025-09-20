@@ -4,7 +4,7 @@ import App from './App.jsx'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter } from 'react-router-dom';
 import DataFetcher from './Components/APItest.jsx';
-import ControlledCarousel from './Components/signin/MainInsprition.jsx';
+import ControlledCarousel from './Components/Signin/MainInsprition.jsx';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
