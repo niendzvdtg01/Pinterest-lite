@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .box {
+        width: 200px;
+        height: 200px;
+        background-color: blue;
+    }
+</style>
+
+<body>
+    <div id="demo"></div>
+    <div id="box"></div>
+    <button id="btn">Click</button>
+</body>
+<script>
+    // let money = 500
+    let output = document.getElementById('demo');
+    // let URL = 'https://api.restful-api.dev/objects'
+    // fetch(URL)
+    //     .then(res => {
+    //         if (!res.ok) {
+    //             throw new Error(`Http eror ${res.status}`)
+    //         }
+    //         return res.json()
+    //     }).then(
+    //         data => {
+    //             output.innerHTML += JSON.stringify(data);
+    //         }
+    //     )
+    //     .catch(error => {
+    //         console.error(error)
+    //     }
+    //     );
+
+    const btn = document.getElementById('btn');
+    btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const current = document.getElementsByClassName('active')
+        // current.className = current.className.replace(" active", '');
+        output.className += ' box';
+    });
+
+</script>
+
+
+</html>
