@@ -6,7 +6,6 @@ import user from './img/user.svg'
 import order from './img/mangeorder.svg'
 import coupons from './img/coupon.svg'
 import SearchBar from './SearchBar'
-import Landcape from './ImgLandscape'
 import WebAPI from './WebAPI'
 import { useState } from 'react'
 
