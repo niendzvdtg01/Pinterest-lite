@@ -1,4 +1,5 @@
-export default function Landcape() {
+export default function Landcape({ data }) {
+    console.log(data)
     return (
         <>
             <div className="row container justify-content-center"

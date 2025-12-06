@@ -9,7 +9,7 @@ import SearchBar from './SearchBar'
 import Landcape from './ImgLandscape'
 import WebAPI from './WebAPI'
 
-export default function Gallery() {
+export default function Gallery({ data }) {
     return (
         <>
             <div className='row'>

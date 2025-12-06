@@ -1,15 +1,17 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import SearchBar from "./SearchBar"
 import axios from "axios";
+import Landcape from "./ImgLandscape";
 
 export default function WebAPI({ query }) {
     // let [results, setResults] = useState("")
     // const HandleSearch = (e) => {
     //     setResults(e)
     // }
-    const key = import.meta.env.VITE;
+    const [photos, setPhotos] = useState([]);
+    const key = import.meta.env.VITE_NIEN;
     console.log(query)
-    const FetchAPi = async () => {
+    const FetchAPI = async () => {
         try {
             const res = await axios.get("https://api.unsplash.com/search/photos",
                 {
@@ -17,17 +19,21 @@ export default function WebAPI({ query }) {
                         Authorization: `Client-ID ${key}`
                     },
                     params: {
-                        query,
-                        perpage: 20
+                        query: query,
+                        per_page: 20
                     }
                 }
             )
+            const data = await res.data
+            setPhotos(data.results)
         } catch (err) {
             console.log(err)
         }
     }
+    useEffect(() => {
+        FetchAPI()
+    }, [query])
     return (
-        <>
-        </>
+        <Landcape data={photos} />
     )
 }
