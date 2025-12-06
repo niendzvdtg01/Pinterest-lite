@@ -1,10 +1,8 @@
 import './style.scss'
 import searchicon from './img/searchicon.svg'
-import { useState } from 'react'
 import WebAPI from './WebAPI'
 
-export default function SearchBar() {
-    let [query, setQuery] = useState("")
+export default function SearchBar({ setQuery }) {
     // console.log(query)
     return (
         <div className="container position-fixed "
@@ -14,7 +12,6 @@ export default function SearchBar() {
             }}
         >
             <div className="row justify-content-center">
-
                 <div className='search-container mt-3'>
                     <img src={searchicon} alt="" />
                     <input type="text" placeholder='Search...' className='search-input'
@@ -24,7 +21,6 @@ export default function SearchBar() {
                     />
                 </div>
             </div>
-            <WebAPI query={query} />
         </div>
     )
 }

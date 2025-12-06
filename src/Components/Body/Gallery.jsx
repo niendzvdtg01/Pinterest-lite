@@ -8,10 +8,12 @@ import coupons from './img/coupon.svg'
 import SearchBar from './SearchBar'
 import Landcape from './ImgLandscape'
 import WebAPI from './WebAPI'
+import { useState } from 'react'
 
-export default function Gallery({ data }) {
+export default function Gallery() {
+    const [query, setQuery] = useState("")
     return (
-        <>
+        <div>
             <div className='row'>
                 <div className='col-sm-2'>
                     <CustomNav
@@ -24,14 +26,17 @@ export default function Gallery({ data }) {
                         ]}
                     />
                 </div>
-                <div className='col-sm'>
-                    <SearchBar />
-                    <Landcape />
+                <div className="col-sm">
+                    <div className="">
+                        <SearchBar setQuery={setQuery} />
+                    </div>
+
+                    <div className=''>
+                        <WebAPI query={query} />
+                    </div>
                 </div>
-                <div style={{ zIndex: "10000000" }}><WebAPI /></div>
 
             </div>
-
-        </>
+        </div>
     )
 }
