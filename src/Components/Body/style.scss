@@ -1,0 +1,158 @@
+@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+$backgroundColor: white;
+$textcolor: #000000;
+$borderLeftColor: #58b5fc;
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.navbar-menu {
+    height: 100vh;
+    background-color: $backgroundColor;
+    box-shadow: 1px 1px 7px rgba(0, 0, 0, 0.15);
+    transition: all 0.5s ease;
+
+}
+
+.burger {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.burger_items {
+    display: flex;
+    justify-content: start;
+}
+
+
+.burger img {
+    padding: 25px 8px 0px 0px;
+    cursor: pointer;
+}
+
+.navbar__list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar__li {
+    display: inline-block;
+    padding: 0px 0px 0px 12px;
+    position: relative;
+    top: 2.5px;
+    font-size: 16px;
+    letter-spacing: 0px;
+    line-height: 38px;
+    color: $textcolor;
+    font-family: "Lato";
+    font-weight: 400;
+}
+
+.navbar__li-box:first-child {
+    margin-top: 53px;
+
+}
+
+.navbar__li-box {
+    height: 43px;
+    margin-top: 15px;
+}
+
+.navbar__li-box:hover {
+    border-left: 7px solid $borderLeftColor;
+    cursor: pointer;
+}
+
+.search-container {
+    width: 500px;
+    height: 50px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 30px;
+    display: flex;
+    background-color: rgb(226, 223, 223);
+    backdrop-filter: blur(10px);
+    position: relative;
+}
+
+.search-input {
+    z-index: 999;
+    height: 40px;
+    width: 100%;
+    margin: 2px;
+    border: none;
+    padding-left: 20px;
+    background-color: inherit;
+}
+
+.search-icon {
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%);
+    color: #888;
+    height: 40px;
+}
+
+.custom-container {
+    width: 100%;
+    background-color: white;
+}
+
+.masonry-item {
+    break-inside: avoid;
+    margin-bottom: 15px;
+}
+
+.masonry-item img {
+    width: 100%;
+    border-radius: 12px;
+    display: block;
+}
+
+.author {
+    margin-top: 5px;
+    font-size: 13px;
+    text-align: center;
+    color: #666;
+}
+
+.masonry-layout {
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    max-width: 1300px;
+    column-count: 5;
+    column-gap: 15px;
+    padding: 5px;
+}
+
+.masonry-layout img {
+    width: 100%;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    break-inside: avoid;
+}
+
+@media (max-width: 1200px) {
+    .masonry-layout {
+        column-count: 4;
+    }
+}
+
+@media (max-width: 768px) {
+    .masonry-layout {
+        column-count: 2;
+    }
+}
+
+@media (max-width: 576px) {
+    .masonry-layout {
+        column-count: 1;
+    }
+}
