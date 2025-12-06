@@ -1,7 +1,11 @@
 import './style.scss'
 import searchicon from './img/searchicon.svg'
+import { useState } from 'react'
+import WebAPI from './WebAPI'
 
 export default function SearchBar() {
+    let [query, setQuery] = useState("")
+    // console.log(query)
     return (
         <div className="container position-fixed "
             style={{
@@ -13,9 +17,14 @@ export default function SearchBar() {
 
                 <div className='search-container mt-3'>
                     <img src={searchicon} alt="" />
-                    <input type="text" placeholder='Search...' className='search-input' />
+                    <input type="text" placeholder='Search...' className='search-input'
+                        onChange={(e) => {
+                            setQuery(e.target.value)
+                        }}
+                    />
                 </div>
             </div>
+            <WebAPI query={query} />
         </div>
     )
 }

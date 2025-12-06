@@ -7,6 +7,7 @@ import order from './img/mangeorder.svg'
 import coupons from './img/coupon.svg'
 import SearchBar from './SearchBar'
 import Landcape from './ImgLandscape'
+import WebAPI from './WebAPI'
 
 export default function Gallery() {
     return (
@@ -27,6 +28,7 @@ export default function Gallery() {
                     <SearchBar />
                     <Landcape />
                 </div>
+                <div style={{ zIndex: "10000000" }}><WebAPI /></div>
 
             </div>
 
