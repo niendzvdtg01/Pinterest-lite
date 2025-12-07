@@ -12,7 +12,6 @@ export default function Landcape({ data = [] }) {
     return (
         <div className="mt-3 w-100 p-3">
             < div className="masonry-layout" >
-
                 {
                     data.map((photo) => (
                         <div key={photo.id} className="masonry-item">
@@ -28,7 +27,6 @@ export default function Landcape({ data = [] }) {
                         </div>
                     ))
                 }
-
             </div >
         </div >
     )

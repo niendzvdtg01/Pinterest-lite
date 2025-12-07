@@ -13,7 +13,7 @@ export default function SearchBar({ setQuery }) {
                 borderRadius: "0 0 30px 30px",
             }}
         >
-            <div className="row justify-content-center">
+            <div className="row justify-content-center w-100">
                 <div className='search-container mt-3'>
                     <img src={searchicon} alt="" />
                     <input type="text" placeholder='Search...' className='search-input'
