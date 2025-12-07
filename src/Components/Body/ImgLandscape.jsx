@@ -22,7 +22,6 @@ export default function Landcape({ data = [] }) {
                                 src={photo.urls.small}
                                 alt={photo.alt_description || "unsplash picture"}
                             />
-
                             <p className="author">
                                 {photo.user?.name}
                             </p>

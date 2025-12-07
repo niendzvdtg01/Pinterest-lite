@@ -20,7 +20,6 @@ export default function Login() {
             console.log(res)
             const account = res.data.find(
                 (acc) => acc.user === email && acc.password === password
-
             );
             console.log(account)
             if (account) {
