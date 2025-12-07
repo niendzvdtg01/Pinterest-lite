@@ -16,6 +16,8 @@ export default function Landcape({ data = [] }) {
                 {
                     data.map((photo) => (
                         <div key={photo.id} className="masonry-item">
+                            <div class="overlay">
+                            </div>
                             <img
                                 src={photo.urls.small}
                                 alt={photo.alt_description || "unsplash picture"}

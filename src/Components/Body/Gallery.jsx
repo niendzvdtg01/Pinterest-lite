@@ -26,7 +26,7 @@ export default function Gallery() {
                     />
                 </div>
                 <div className="col-sm">
-                    <div className="">
+                    <div className="header">
                         <SearchBar setQuery={setQuery} />
                     </div>
 
