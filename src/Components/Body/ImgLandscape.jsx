@@ -9,7 +9,6 @@ export default function Landcape({ data = [] }) {
             </p>
         )
     }
-
     return (
         <div className="mt-3 w-100 p-3">
             < div className="masonry-layout" >
