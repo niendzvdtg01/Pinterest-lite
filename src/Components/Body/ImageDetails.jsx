@@ -1,4 +1,5 @@
 import axios from "axios";
+import { useEffect } from "react";
 
 export default function ImgDetails(props) {
     const data = props.data
@@ -14,9 +15,19 @@ export default function ImgDetails(props) {
             window.open(res.data.url, "_blank")
         } catch (err) {
             alert("Error: ", err)
-            console.log(err)
+            // console.log(err)
         }
     }
+    useEffect(() => {
+        if (props.trigger) {
+            document.body.style.overflow = "hidden";
+        } else {
+            document.body.style.overflow = "auto";
+        }
+        return () => {
+            document.body.style.overflow = "auto";
+        }
+    }, [props.trigger])
     return (props.trigger) ? (
         <>
             <div className="imagedetails-background">
@@ -24,9 +35,9 @@ export default function ImgDetails(props) {
                     <div className="close-btn">
                         <button onClick={() => { props.setTrigger(false) }}>X</button>
                     </div>
-                    <div><button onClick={handleDownload}>Download</button></div>
-                    <div className="d-flex w-100">
-                        <img src={data.urls.small} alt="" style={{ maxWidth: "33%", margin: "0 auto", objectFit: "cover" }} />
+                    <div className="download-btn"><button onClick={handleDownload}>Download</button></div>
+                    <div className="d-flex w-100 mb-5">
+                        <img src={data.urls.small} alt="" style={{ maxWidth: "30%", margin: "0 auto", objectFit: "cover" }} />
                     </div>
                 </div>
             </div>

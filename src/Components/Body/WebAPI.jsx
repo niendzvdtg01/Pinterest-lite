@@ -48,7 +48,6 @@ export default function WebAPI({ query }) {
                 //fetch them api
                 setPhotos(prev => [...prev, ...data.results]);
             }
-
         } catch (err) {
             console.log(err)
         }
