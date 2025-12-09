@@ -3,7 +3,6 @@ $backgroundColor: white;
 $textcolor: #000000;
 $borderLeftColor: #58b5fc;
 
-
 * {
     margin: 0;
     padding: 0;
@@ -69,19 +68,29 @@ $borderLeftColor: #58b5fc;
     cursor: pointer;
 }
 
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+    background: white;
+    padding: 10px 0;
+}
+
+//Thanh search
 .search-container {
-    width: 500px;
+    min-width: 100%;
     height: 50px;
-    border: 2px solid rgba(255, 255, 255, 0.3);
+    border: none;
     border-radius: 30px;
     display: flex;
     background-color: rgb(226, 223, 223);
     backdrop-filter: blur(10px);
     position: relative;
+    z-index: 999;
+
 }
 
 .search-input {
-    z-index: 999;
     height: 40px;
     width: 100%;
     margin: 2px;
@@ -104,15 +113,24 @@ $borderLeftColor: #58b5fc;
     background-color: white;
 }
 
+// Tao luoi anh hien thi
 .masonry-item {
     break-inside: avoid;
     margin-bottom: 15px;
+    position: relative;
+    display: inline-block;
+    width: 100%;
 }
 
 .masonry-item img {
     width: 100%;
     border-radius: 12px;
     display: block;
+    opacity: 1;
+    height: auto;
+    transition: .5s ease;
+    backface-visibility: hidden;
+    z-index: 0;
 }
 
 .author {
@@ -126,7 +144,7 @@ $borderLeftColor: #58b5fc;
     justify-content: center;
     align-items: center;
     margin-top: 50px;
-    max-width: 1300px;
+    max-width: 1290px;
     column-count: 5;
     column-gap: 15px;
     padding: 5px;
@@ -137,8 +155,33 @@ $borderLeftColor: #58b5fc;
     margin-bottom: 15px;
     border-radius: 10px;
     break-inside: avoid;
+    z-index: 0;
 }
 
+//Tao overlay
+.masonry-item .overlay {
+    border-radius: 12px;
+    width: 100%;
+    height: 100%;
+    transition: 0.4s ease;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    cursor: zoom-in;
+}
+
+.masonry-item:hover .overlay {
+    opacity: 1;
+}
+
+.masonry-item:hover {
+    scale: (1.02);
+}
+
+//responsive
 @media (max-width: 1200px) {
     .masonry-layout {
         column-count: 4;
@@ -155,4 +198,79 @@ $borderLeftColor: #58b5fc;
     .masonry-layout {
         column-count: 1;
     }
+}
+
+//upload btn
+.upload-btn button {
+    margin: 20px;
+    margin-left: 40px;
+    width: 120px;
+    height: 40px;
+    border-radius: 30px;
+    border: none;
+    background-color: coral;
+    font-weight: 600;
+}
+
+//uplaod  popup
+.upload-background {
+    display: flex;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    background-color: rgb(0, 0, 0, 0.6);
+    justify-content: center;
+    align-items: center;
+}
+
+.upload-popup {
+    width: 500px;
+    height: 500px;
+    background-color: #fff;
+    border-radius: 40px;
+}
+
+.close-btn button {
+    float: right;
+    margin: 20px;
+    padding: 10px;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    border: none;
+    background-color: #888;
+}
+
+//image detail
+.imagedetails-background {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgb(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+}
+
+.imagedetails-popup {
+    background-color: #fff;
+    width: 85%;
+    max-height: 80vh;
+    border-radius: 40px;
+    overflow-y: auto;
+}
+
+.download-btn button {
+    margin: 2%;
+    width: 10%;
+    min-height: 50px;
+    border-radius: 30px;
+    border: 1px solid #ccc;
+    background-color: aquamarine;
+
 }
