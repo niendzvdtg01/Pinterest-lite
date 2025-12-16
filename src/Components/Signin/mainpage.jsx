@@ -6,25 +6,25 @@ import './mainpage.scss'
 import logo from '../../assets/Logo.png'
 import BG from '../../assets/MainBG.jpg'
 import { useState } from 'react';
-import axios from 'axios'
 import SigninPopup from './SigninPopup';
+import { Navigate, useNavigate } from 'react-router-dom';
 
-
-export default function Login() {
-    const [email, setEmail] = useState('')
+export default function Login({ user }) {
+    const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
-
+    const [click, setClick] = useState(false)
+    const naviagate = useNavigate();
+    console.log(user);
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const res = await axios.get("http://localhost:3003/Accounts")
-            console.log(res)
-            const account = res.data.find(
-                (acc) => acc.user === email && acc.password === password
+            const account = user.find(
+                (acc) => acc.username === username && acc.userpassword === password
             );
             console.log(account)
             if (account) {
                 alert("Dang nhap thanh cong!!")
+                naviagate("/home")
             } else {
                 alert("Sai mat khau!!")
             }
@@ -32,7 +32,6 @@ export default function Login() {
             console.log(err)
             alert("Loi ket noi");
         }
-
     }
 
     return (
@@ -57,7 +56,7 @@ export default function Login() {
 
                         <Form.Group className="mb-3" controlId="formBasicEmail" size="lg">
                             <Form.Label style={{ fontSize: 12 }}>User name</Form.Label>
-                            <Form.Control type="email" value={email} placeholder="Enter email" style={{ height: 40, width: 250 }} onChange={(e) => setEmail(e.target.value)} />
+                            <Form.Control type="text" value={username} placeholder="Enter username" style={{ height: 40, width: 250 }} onChange={(e) => setUsername(e.target.value)} />
                         </Form.Group>
 
                         <Form.Group className="mb-3" controlId="formBasicPassword">
@@ -71,12 +70,12 @@ export default function Login() {
                             Submit
                         </Button>
                         <div className='create-acc'>
-                            <p>Don't have account, <a style={{ color: "blue", cursor: "pointer" }}>join us</a></p>
+                            <p>Don't have account, <a style={{ color: "blue", cursor: "pointer" }} onClick={() => { setClick(true) }}>join us</a></p>
                         </div>
                     </Form>
                 </Container >
             </div >
-            <SigninPopup trigger={true} />
+            <SigninPopup trigger={click} setTrigger={setClick} />
         </>
     );
 }
