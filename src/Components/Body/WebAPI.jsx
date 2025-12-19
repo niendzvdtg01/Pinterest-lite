@@ -53,13 +53,6 @@ export default function WebAPI({ query }) {
             console.log(err)
         }
     }
-    const UploadAPI = async () => {
-        try {
-            const res = await axios.post();
-        } catch (err) {
-            console.log(err);
-        }
-    }
     //chay api va set page
     useEffect(() => {
         if (!query) {
@@ -84,7 +77,7 @@ export default function WebAPI({ query }) {
             >
                 <Landcape data={photos} />
             </InfiniteScroll>
-            <UploadPopup trigger={false} />
+            {/* <UploadPopup trigger={false} /> */}
         </>
     )
 }
