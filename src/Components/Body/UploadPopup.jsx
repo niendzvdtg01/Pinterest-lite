@@ -32,6 +32,12 @@ export default function UploadPopup(props) {
                     accept="image/*"
                     style={{ display: "none" }}
                 />
+                <div className='d-flex image-input'>
+                    <input type="text" placeholder='Title' />
+                </div>
+                <div className='d-flex image-input'>
+                    <input type="text" placeholder='Description' />
+                </div>
                 <div className='upload-btn d-flex'>
                     <button onClick={handleClick} style={{ margin: "0 auto" }}>Upload file</button>
                 </div>

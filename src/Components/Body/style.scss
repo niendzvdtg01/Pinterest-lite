@@ -272,5 +272,13 @@ $borderLeftColor: #58b5fc;
     border-radius: 30px;
     border: 1px solid #ccc;
     background-color: aquamarine;
+}
 
+.image-input input[type="text"] {
+    margin: 0 auto;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    border-radius: 30px;
+    border: 1px solid #ccc;
+    text-align: center;
 }
