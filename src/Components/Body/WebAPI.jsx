@@ -2,6 +2,7 @@ import { useState, useEffect } from "react"
 import axios from "axios";
 import Landcape from "./ImgLandscape";
 import InfiniteScroll from "react-infinite-scroll-component";
+import UploadPopup from "./UploadPopup";
 
 export default function WebAPI({ query }) {
     // let [results, setResults] = useState("")
@@ -31,6 +32,7 @@ export default function WebAPI({ query }) {
                     }
                 )
                 const data = await res.data;
+                // console.log(data)
                 setPhotos(prev => [...prev, ...data]);
             } else {
                 const res = await axios.get(search_url,
@@ -68,12 +70,15 @@ export default function WebAPI({ query }) {
     }, [page, query])
     return (
         //Su dung thu vien inifity scroll de ta hieu ung anh vo han
-        <InfiniteScroll
-            dataLength={photos.length}
-            next={() => setPage(prev => prev + 1)}
-            hasMore={true}//Cac thuoc tinh can co de chay duoc thu vien
-        >
-            <Landcape data={photos} />
-        </InfiniteScroll>
+        <>
+            <InfiniteScroll
+                dataLength={photos.length}
+                next={() => setPage(prev => prev + 1)}
+                hasMore={true}//Cac thuoc tinh can co de chay duoc thu vien
+            >
+                <Landcape data={photos} />
+            </InfiniteScroll>
+            {/* <UploadPopup trigger={false} /> */}
+        </>
     )
 }
