@@ -32,6 +32,7 @@ export default function WebAPI({ query }) {
                     }
                 )
                 const data = await res.data;
+                // console.log(data)
                 setPhotos(prev => [...prev, ...data]);
             } else {
                 const res = await axios.get(search_url,

@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import com.cloudinary.Cloudinary;
-import com.gallery.backend.Cloudnary.CloudnaryProperties;
+import com.gallery.backend.Properties.CloudnaryProperties;
 
 @Configuration
 @ConfigurationProperties(prefix = "cloudinary")

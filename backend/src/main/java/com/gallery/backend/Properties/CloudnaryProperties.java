@@ -1,4 +1,4 @@
-package com.gallery.backend.Cloudnary;
+package com.gallery.backend.Properties;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
@@ -33,5 +33,4 @@ public class CloudnaryProperties {
     public void setApiSecret(String apiSecret) {
         this.apiSecret = apiSecret;
     }
-
 }
