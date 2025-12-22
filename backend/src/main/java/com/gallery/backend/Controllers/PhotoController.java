@@ -1,5 +1,9 @@
 package com.gallery.backend.Controllers;
 
+import com.gallery.backend.services.UnplashService;
+
+import java.util.List;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -10,16 +14,21 @@ import com.gallery.backend.dtorequests.PhotoCreation;
 import com.gallery.backend.services.CloudinaryService;
 import com.gallery.backend.services.PhotoService;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 
 @RestController
 @RequestMapping(path = "/photo")
 public class PhotoController {
+
+    private final UnplashService unplashService;
     private final PhotoService photoService;
     private final CloudinaryService cloudinaryService;
 
-    public PhotoController(PhotoService photoService, CloudinaryService cloudinaryService) {
+    public PhotoController(PhotoService photoService, CloudinaryService cloudinaryService,
+            UnplashService unplashService) {
         this.photoService = photoService;
         this.cloudinaryService = cloudinaryService;
+        this.unplashService = unplashService;
     }
 
     @PostMapping(path = "/post")
@@ -33,4 +42,13 @@ public class PhotoController {
         }
     }
 
+    //
+    @GetMapping("/image")
+    public List<PhotoCreation> getImage(@RequestParam(required = false) String keyword) {
+        if (keyword != null && !keyword.isBlank()) {
+            return unplashService.searchPhoto(keyword);
+        } else {
+            return unplashService.getPhoto();
+        }
+    }
 }
