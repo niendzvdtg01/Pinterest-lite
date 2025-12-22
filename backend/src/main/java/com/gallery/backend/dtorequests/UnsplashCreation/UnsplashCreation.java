@@ -38,27 +38,5 @@ public class UnsplashCreation {
         this.description = description;
     }
 
-    public class Urls {
-        private String small;
 
-        public void setSmall(String small) {
-            this.small = small;
-        }
-
-        public String getSmall() {
-            return this.small;
-        }
-    }
-
-    public class User {
-        private String name;
-
-        public void setName(String name) {
-            this.name = name;
-        }
-
-        public String getName() {
-            return this.name;
-        }
-    }
 }
