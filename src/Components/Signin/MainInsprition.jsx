@@ -7,10 +7,18 @@ import img5 from '../../assets/imgcard6.jpg'
 import img1 from '../../assets/imgcard1.jpg'
 import img7 from '../../assets/imgcard2.jpg'
 import card from '../../assets/Card.jpg'
+import Card from './Card';
+
 
 function ControlledCarousel() {
-
-
+    const cards = [
+        { img: img1, title: "Card title", text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, harum! Error, eaque pariatur quidem corrupt quisquam?" },
+        { img: img2, title: "Card title", text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, harum! Error, eaque pariatur quidem corrupt quisquam?" },
+        { img: img4, title: "Card title", text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, harum! Error, eaque pariatur quidem corrupt quisquam?" },
+        { img: img5, title: "Card title", text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, harum! Error, eaque pariatur quidem corrupt quisquam?" },
+        { img: img6, title: "Card title", text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, harum! Error, eaque pariatur quidem corrupt quisquam?" },
+        { img: img7, title: "Card title", text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, harum! Error, eaque pariatur quidem corrupt quisquam?" }
+    ];
     return (
         <div>
             <div className='d-flex justify-content-center mt-5'>
@@ -24,60 +32,9 @@ function ControlledCarousel() {
                     </div>
                     <div>
                         <div className="row row-cols-1 row-cols-md-3 g-4">
-                            <div className="col">
-                                <div className="card h-100">
-                                    <img src={img2} className="card-img-top" alt="..." />
-                                    <div className="card-body">
-                                        <h5 className="card-title">Card title</h5>
-                                        <p className="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="col">
-                                <div className="card h-100">
-                                    <img src={img4} className="card-img-top" alt="..." />
-                                    <div className="card-body">
-                                        <h5 className="card-title">Card title</h5>
-                                        <p className="card-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Asperiores, voluptatlendus deserunt laboriosam tempore, alias labore inventore impedit repudiandae. Impedit alias quisquam laborum saepe eaque.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="col">
-                                <div className="card h-100">
-                                    <img src={img5} className="card-img-top" alt="..." />
-                                    <div className="card-body">
-                                        <h5 className="card-title">Card title</h5>
-                                        <p className="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="col">
-                                <div className="card h-100">
-                                    <img src={img6} className="card-img-top" alt="..." />
-                                    <div className="card-body">
-                                        <h5 className="card-title">Card title</h5>
-                                        <p className="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="col">
-                                <div className="card h-100">
-                                    <img src={img1} className="card-img-top" alt="..." />
-                                    <div className="card-body">
-                                        <h5 className="card-title">Card title</h5>
-                                        <p className="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="col">
-                                <div className="card h-100">
-                                    <img src={img7} className="card-img-top" alt="..." />
-                                    <div className="card-body">
-                                        <h5 className="card-title">Card title</h5>
-                                        <p className="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                    </div>
-                                </div>
-                            </div>
+                            {cards.map((c) => (
+                                <Card image={c.img} title={c.title} text={c.text} />
+                            ))}
                         </div>
                     </div>
                 </div>

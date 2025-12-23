@@ -11,9 +11,7 @@ export default function WebAPI({ query }) {
     // }
     const [photos, setPhotos] = useState([]);
     const [page, setPage] = useState(1);
-    const key = import.meta.env.VITE_NIEN;
-    const search_url = "https://api.unsplash.com/search/photos"
-    const standard_url = "https://api.unsplash.com/photos"
+    const standardUrl = "http://localhost:8080/gallery_database/photo/image"
     console.log(query)
     const FetchAPI = async () => {
         try {
@@ -22,34 +20,15 @@ export default function WebAPI({ query }) {
             - Truyen key
             - truyen paramater
             */
-            if (query.length === 0) {
-                const res = await axios.get(standard_url,
-                    {
-                        headers: { Authorization: `Client-ID ${key}` },
-                        params: {
-                            per_page: 20
-                        }
-                    }
-                )
-                const data = await res.data;
-                // console.log(data)
-                setPhotos(prev => [...prev, ...data]);
-            } else {
-                const res = await axios.get(search_url,
-                    {
-                        headers: {
-                            Authorization: `Client-ID ${key}`
-                        },
-                        params: {
-                            query: query,
-                            per_page: 20
-                        }
-                    }
-                )
-                const data = await res.data;
-                //fetch them api
-                setPhotos(prev => [...prev, ...data.results]);
-            }
+
+            const res = await axios.get(standardUrl, {
+                params: {
+                    keyword: query
+                }
+            })
+            const data = await res.data;
+            //fetch them api
+            setPhotos(prev => [...prev, ...data]);
         } catch (err) {
             console.log(err)
         }
