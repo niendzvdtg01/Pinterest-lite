@@ -25,12 +25,12 @@ export default function Landcape({ data = [] }) {
                                 </div>
 
                                 <img
-                                    src={photo.urls.small}
-                                    alt={photo.alt_description || "unsplash picture"}
+                                    src={photo.imageUrl}
+                                    alt={photo.descriptions || "unsplash picture"}
                                 />
                             </a>
                             <p className="author">
-                                {photo.user?.name}
+                                {photo.title}
                             </p>
                         </div>
                     ))
