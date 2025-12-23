@@ -34,5 +34,4 @@ public class PhotoCreation {
     public void setDescriptions(String descriptions) {
         this.descriptions = descriptions;
     }
-
 }
