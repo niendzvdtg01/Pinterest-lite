@@ -37,7 +37,7 @@ export default function ImgDetails(props) {
                     </div>
                     <div className="download-btn"><button onClick={handleDownload}>Download</button></div>
                     <div className="d-flex w-100 mb-5">
-                        <img src={data.urls.small} alt="" style={{ maxWidth: "30%", margin: "0 auto", objectFit: "cover" }} />
+                        <img src={data.imageUrl} alt="" style={{ maxWidth: "30%", margin: "0 auto", objectFit: "cover" }} />
                     </div>
                 </div>
             </div>

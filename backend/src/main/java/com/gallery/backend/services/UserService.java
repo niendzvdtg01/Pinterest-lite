@@ -19,7 +19,6 @@ public class UserService {
         user.setFirstname(requests.getFirstname());
         user.setLastname(requests.getLastname());
         user.setUserpassword(requests.getUserpassword());
-
         usersRepository.save(user);
         return user;
     }
