@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect } from "react";
+import LikeButton from "../UI/LikeButton";
 
 export default function ImgDetails(props) {
     const data = props.data
@@ -36,6 +37,7 @@ export default function ImgDetails(props) {
                         <button onClick={() => { props.setTrigger(false) }}>X</button>
                     </div>
                     <div className="download-btn"><button onClick={handleDownload}>Download</button></div>
+                    <div className="d-flex"><LikeButton /></div>
                     <div className="d-flex w-100 mb-5">
                         <img src={data.imageUrl} alt="" style={{ maxWidth: "30%", margin: "0 auto", objectFit: "cover" }} />
                     </div>
