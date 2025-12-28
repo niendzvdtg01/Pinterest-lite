@@ -6,6 +6,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -15,8 +17,9 @@ public class Photo {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "photo_id")
     private Long photoId;
-    @Column(name = "user_id")
-    private Integer userId;
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private Users userId;
     @Column(name = "image_url")
     private String imgUrl;
     @Column(name = "title")
@@ -34,7 +37,7 @@ public class Photo {
 
     }
 
-    public Photo(Long photoId, Integer userId, String imgUrl, String title, String descriptions, Date uploadDate,
+    public Photo(Long photoId, Users userId, String imgUrl, String title, String descriptions, Date uploadDate,
             Integer viewCount, Integer likeCount) {
         this.photoId = photoId;
         this.userId = userId;
@@ -54,11 +57,11 @@ public class Photo {
         this.photoId = photoId;
     }
 
-    public Integer getUserId() {
+    public Users getUserId() {
         return this.userId;
     }
 
-    public void setUserId(Integer userId) {
+    public void setUserId(Users userId) {
         this.userId = userId;
     }
 
