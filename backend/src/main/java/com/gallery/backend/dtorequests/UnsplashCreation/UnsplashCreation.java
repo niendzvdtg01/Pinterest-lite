@@ -1,10 +1,19 @@
 package com.gallery.backend.dtorequests.UnsplashCreation;
 
 public class UnsplashCreation {
+    private String id;
     private Urls urls;
     private String source;
     private User user;
     private String description;
+
+    public String getId() {
+        return this.id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public Urls getUrls() {
         return this.urls;

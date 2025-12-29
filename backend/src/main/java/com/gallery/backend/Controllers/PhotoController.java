@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.gallery.backend.dtorequests.PhotoCreation;
+import com.gallery.backend.dtorequests.PhotoResponse;
 import com.gallery.backend.services.CloudinaryService;
 import com.gallery.backend.services.PhotoService;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -45,7 +46,7 @@ public class PhotoController {
 
     //
     @GetMapping("/image")
-    public List<PhotoCreation> getImage(@RequestParam(required = false) String keyword) {
+    public List<PhotoResponse> getImage(@RequestParam(required = false) String keyword) {
         if (keyword != null && !keyword.isBlank()) {
             return unplashService.searchPhoto(keyword);
         } else {

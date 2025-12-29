@@ -1,33 +1,10 @@
-package com.gallery.backend.entity;
+package com.gallery.backend.dtorequests;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-
-@Entity
-@Table(name = "UnsplashPhto")
-public class UnsplashPhoto {
-    @Id
-    @Column(name = "unsplash_id", nullable = false)
+public class UnsplashPhtoCreation {
     private String unsplashId;
-    @Column(name = "unsplash_url")
     private String unsplashUrl;
-    @Column(name = "unsplash_title")
     private String unsplashTitle;
-    @Column(name = "unsplash_description")
     private String unsplashDescription;
-
-    public UnsplashPhoto(String unsplashId, String unsplashUrl, String unsplashTitle, String unsplashDescription) {
-        this.unsplashId = unsplashId;
-        this.unsplashUrl = unsplashUrl;
-        this.unsplashTitle = unsplashTitle;
-        this.unsplashDescription = unsplashDescription;
-    }
-
-    public UnsplashPhoto() {
-
-    }
 
     public String getUnsplashId() {
         return this.unsplashId;
@@ -60,4 +37,5 @@ public class UnsplashPhoto {
     public void setUnsplashDescription(String unsplashDescription) {
         this.unsplashDescription = unsplashDescription;
     }
+
 }
