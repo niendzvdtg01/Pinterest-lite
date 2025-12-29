@@ -11,53 +11,77 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import com.gallery.backend.Properties.UnplashProperties;
-import com.gallery.backend.dtorequests.PhotoCreation;
+import com.gallery.backend.dtorequests.PhotoResponse;
+import com.gallery.backend.dtorequests.UnsplashPhtoCreation;
 import com.gallery.backend.dtorequests.UnsplashCreation.UnsplashCreation;
 import com.gallery.backend.dtorequests.UnsplashCreation.UnsplashSearchResponse;
+import com.gallery.backend.entity.UnsplashPhoto;
 import com.gallery.backend.respository.PhotoResponsitory;
+import com.gallery.backend.respository.UnsplashPhtoResponsitory;
+
 import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor
 public class UnplashService {
 
-    private final PhotoResponsitory photoResponsitory;
-    private final UnplashProperties props;
+        private final PhotoResponsitory photoResponsitory;
+        private final UnplashProperties props;
+        private final UnsplashPhtoResponsitory unsplashPhtoResponsitory;
 
-    private final RestTemplate restTemplate = new RestTemplate();
+        private final RestTemplate restTemplate = new RestTemplate();
 
-    private HttpHeaders headers() {
-        HttpHeaders h = new HttpHeaders();
-        h.set("Authorization", "Client-ID " + props.getAccessKey());
-        return h;
-    }
+        private HttpHeaders headers() {
+                HttpHeaders h = new HttpHeaders();
+                h.set("Authorization", "Client-ID " + props.getAccessKey());
+                return h;
+        }
 
-    public List<PhotoCreation> getPhoto() {
-        String url = "https://api.unsplash.com/photos?per_page=20";
+        public List<PhotoResponse> getPhoto() {
+                String url = "https://api.unsplash.com/photos?per_page=20";
 
-        HttpEntity<Void> entity = new HttpEntity<>(headers());
-        UnsplashCreation[] res = restTemplate.exchange(url, HttpMethod.GET, entity, UnsplashCreation[].class).getBody();
-        List<PhotoCreation> unsplashPhtos = Arrays.stream(res)
-                .map(p -> new PhotoCreation(p.getUrls().getSmall(), p.getUser().getName(), p.getDescription()))
-                .toList();
-        List<PhotoCreation> userPhotos = photoResponsitory.findAll().stream()
-                .map(p -> new PhotoCreation(p.getImgUrl(), p.getTitle(), p.getDescriptions())).toList();
-        List<PhotoCreation> results = new ArrayList<>();
-        results.addAll(unsplashPhtos);
-        results.addAll(userPhotos);
-        return results;
-    }
+                HttpEntity<Void> entity = new HttpEntity<>(headers());
+                UnsplashCreation[] res = restTemplate.exchange(url, HttpMethod.GET, entity, UnsplashCreation[].class)
+                                .getBody();
+                List<PhotoResponse> unsplashPhtos = Arrays.stream(res)
+                                .map(p -> new PhotoResponse(p.getUrls().getSmall(), p.getUser().getName(),
+                                                p.getDescription(),
+                                                null, p.getId()))
+                                .toList();
+                List<PhotoResponse> userPhotos = photoResponsitory.findAll().stream()
+                                .map(p -> new PhotoResponse(p.getImgUrl(), p.getTitle(), p.getDescriptions(),
+                                                p.getPhotoId(), null))
+                                .toList();
+                List<PhotoResponse> results = new ArrayList<>();
+                results.addAll(unsplashPhtos);
+                results.addAll(userPhotos);
+                return results;
+        }
 
-    public List<PhotoCreation> searchPhoto(String keyword) {
-        String url = "https://api.unsplash.com/search/photos?query=" + keyword;
+        public List<PhotoResponse> searchPhoto(String keyword) {
+                String url = "https://api.unsplash.com/search/photos?query=" + keyword;
 
-        HttpEntity<Void> entity = new HttpEntity<>(headers());
+                HttpEntity<Void> entity = new HttpEntity<>(headers());
 
-        UnsplashSearchResponse res = restTemplate.exchange(url, HttpMethod.GET, entity, UnsplashSearchResponse.class)
-                .getBody();
+                UnsplashSearchResponse res = restTemplate
+                                .exchange(url, HttpMethod.GET, entity, UnsplashSearchResponse.class)
+                                .getBody();
 
-        return res.getResults().stream()
-                .map(p -> new PhotoCreation(p.getUrls().getSmall(), p.getUser().getName(), p.getDescription()))
-                .toList();
-    }
+                return res.getResults().stream()
+                                .map(p -> new PhotoResponse(p.getUrls().getSmall(), p.getUser().getName(),
+                                                p.getDescription(),
+                                                null, p.getId()))
+                                .toList();
+        }
+
+        public UnsplashPhoto saveUnsplash(UnsplashPhtoCreation requests) {
+                return unsplashPhtoResponsitory.findById(requests.getUnsplashId()).orElseGet(() -> {
+                        UnsplashPhoto unsplashPhoto = new UnsplashPhoto();
+                        unsplashPhoto.setUnsplashId(requests.getUnsplashId());
+                        unsplashPhoto.setUnsplashUrl(requests.getUnsplashUrl());
+                        unsplashPhoto.setUnsplashTitle(requests.getUnsplashTitle());
+                        unsplashPhoto.setUnsplashDescription(requests.getUnsplashDescription());
+                        return unsplashPhtoResponsitory.save(unsplashPhoto);
+                });
+        }
 }
