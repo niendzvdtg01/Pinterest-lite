@@ -1,11 +1,12 @@
 import { useState } from "react";
 
-export default function LikeButton() {
+export default function LikeButton({ onClick }) {
     const [liked, setLiked] = useState(false)
     return (
         <>
             <button onClick={() => {
                 setLiked(!liked)
+                onClick();
             }}
                 style={{
                     margin: "0 auto 1%",
