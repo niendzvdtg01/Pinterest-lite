@@ -9,7 +9,7 @@ import com.gallery.backend.entity.UnsplashPhoto;
 import com.gallery.backend.entity.Users;
 import com.gallery.backend.respository.FavouriteResponsitory;
 import com.gallery.backend.respository.PhotoResponsitory;
-import com.gallery.backend.respository.UnsplashPhtoResponsitory;
+import com.gallery.backend.respository.UnsplashPhotoResponsitory;
 import com.gallery.backend.respository.UsersRepository;
 
 @Service
@@ -17,10 +17,10 @@ public class FavouriteService {
     private final FavouriteResponsitory favouriteResponsitory;
     private final UsersRepository usersRepository;
     private final PhotoResponsitory photoResponsitory;
-    private final UnsplashPhtoResponsitory unsplashPhtoResponsitory;
+    private final UnsplashPhotoResponsitory unsplashPhtoResponsitory;
 
     public FavouriteService(FavouriteResponsitory favouriteResponsitory, UsersRepository usersRepository,
-            PhotoResponsitory photoResponsitory, UnsplashPhtoResponsitory unsplashPhtoResponsitory) {
+            PhotoResponsitory photoResponsitory, UnsplashPhotoResponsitory unsplashPhtoResponsitory) {
         this.favouriteResponsitory = favouriteResponsitory;
         this.usersRepository = usersRepository;
         this.photoResponsitory = photoResponsitory;

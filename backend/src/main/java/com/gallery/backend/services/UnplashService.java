@@ -12,12 +12,12 @@ import org.springframework.web.client.RestTemplate;
 
 import com.gallery.backend.Properties.UnplashProperties;
 import com.gallery.backend.dtorequests.PhotoResponse;
-import com.gallery.backend.dtorequests.UnsplashPhtoCreation;
+import com.gallery.backend.dtorequests.UnsplashPhotoCreation;
 import com.gallery.backend.dtorequests.UnsplashCreation.UnsplashCreation;
 import com.gallery.backend.dtorequests.UnsplashCreation.UnsplashSearchResponse;
 import com.gallery.backend.entity.UnsplashPhoto;
 import com.gallery.backend.respository.PhotoResponsitory;
-import com.gallery.backend.respository.UnsplashPhtoResponsitory;
+import com.gallery.backend.respository.UnsplashPhotoResponsitory;
 
 import lombok.RequiredArgsConstructor;
 
@@ -27,7 +27,7 @@ public class UnplashService {
 
         private final PhotoResponsitory photoResponsitory;
         private final UnplashProperties props;
-        private final UnsplashPhtoResponsitory unsplashPhtoResponsitory;
+        private final UnsplashPhotoResponsitory unsplashPhtoResponsitory;
 
         private final RestTemplate restTemplate = new RestTemplate();
 
@@ -74,7 +74,7 @@ public class UnplashService {
                                 .toList();
         }
 
-        public UnsplashPhoto saveUnsplash(UnsplashPhtoCreation requests) {
+        public UnsplashPhoto saveUnsplash(UnsplashPhotoCreation requests) {
                 return unsplashPhtoResponsitory.findById(requests.getUnsplashId()).orElseGet(() -> {
                         UnsplashPhoto unsplashPhoto = new UnsplashPhoto();
                         unsplashPhoto.setUnsplashId(requests.getUnsplashId());

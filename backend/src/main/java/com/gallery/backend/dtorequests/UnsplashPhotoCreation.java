@@ -1,6 +1,6 @@
 package com.gallery.backend.dtorequests;
 
-public class UnsplashPhtoCreation {
+public class UnsplashPhotoCreation {
     private String unsplashId;
     private String unsplashUrl;
     private String unsplashTitle;

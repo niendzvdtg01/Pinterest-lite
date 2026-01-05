@@ -22,5 +22,4 @@ public class FavouriteController {
     public Favourite getFavourite(@RequestBody FavouriteCreation requests) {
         return favouriteService.saveFavourite(requests);
     }
-
 }

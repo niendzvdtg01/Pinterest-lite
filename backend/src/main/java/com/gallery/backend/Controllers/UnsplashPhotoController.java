@@ -3,7 +3,7 @@ package com.gallery.backend.Controllers;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.gallery.backend.dtorequests.UnsplashPhtoCreation;
+import com.gallery.backend.dtorequests.UnsplashPhotoCreation;
 import com.gallery.backend.entity.UnsplashPhoto;
 import com.gallery.backend.services.UnplashService;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,7 +19,7 @@ public class UnsplashPhotoController {
     }
 
     @PostMapping(path = "/post")
-    public UnsplashPhoto insertUnsplashPhoto(@RequestBody UnsplashPhtoCreation requests) {
+    public UnsplashPhoto insertUnsplashPhoto(@RequestBody UnsplashPhotoCreation requests) {
         return unplashService.saveUnsplash(requests);
     }
 }
