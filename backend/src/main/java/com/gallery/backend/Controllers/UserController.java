@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 @RestController
-@RequestMapping(path = "/test")
+@RequestMapping(path = "/user")
 public class UserController {
     private final UserService userService;
     @Autowired
@@ -25,12 +25,12 @@ public class UserController {
         this.userService = userService;
     }
 
-    @GetMapping(path = "/user")
+    @GetMapping(path = "/get_user")
     public @ResponseBody Iterable<Users> getAllUsers() {
         return usersRepository.findAll();
     }
 
-    @PostMapping(path = "/user")
+    @PostMapping(path = "/create_user")
     public Users createUser(@RequestBody UserCreation requests) {
         return userService.createUsers(requests);
     }

@@ -7,5 +7,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import com.gallery.backend.entity.Users;
 
 public interface UsersRepository extends JpaRepository<Users, Integer> {
-    Optional<Users> findByEmail(String email);
+    Optional<Users> findByUsername(String username);
 }

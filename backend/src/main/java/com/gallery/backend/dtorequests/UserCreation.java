@@ -54,5 +54,4 @@ public class UserCreation {
     public void setLastname(String lastname) {
         this.lastname = lastname;
     }
-
 }
