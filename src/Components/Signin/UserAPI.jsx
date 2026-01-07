@@ -1,24 +1,26 @@
-import axios from "axios"
-import { useEffect, useState } from "react";
-import Login from "./mainpage";
+import axios from "axios";
+import { useState } from "react";
 
-export default function UserAPI() {
-    const [data, setData] = useState([]);
-    const url = import.meta.env.VITE_MAINURL;
-    const fecthAPI = async () => {
+export default function useLogin() {
+    const [error, setError] = useState(null);
+    const url = import.meta.env.VITE_LOGIN;
+    const login = async (username, password) => {
+        const userData = {
+            username: username,
+            userpassword: password
+        }
         try {
-            const userData = await axios.get(url);
-            setData(userData.data);
-            console.log(userData.data);
+            const response = await axios.post(url, userData,
+                {
+                    headers: { "Content-Type": "application/json" },
+                    withCredentials: true
+                }
+            );
+            setError(null);
+            return response.data;
         } catch (err) {
-            console.log(err);
+            setError(err.response?.data?.message || err.message);
         }
     }
-    useEffect(() => {
-        fecthAPI()
-    }, [])
-    console.log(data)
-    return (
-        <Login user={data} />
-    )
+    return { login, error };
 }

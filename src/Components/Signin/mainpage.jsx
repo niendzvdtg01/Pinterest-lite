@@ -8,29 +8,28 @@ import BG from '../../assets/MainBG.jpg'
 import { useState } from 'react';
 import SigninPopup from './SigninPopup';
 import { Navigate, useNavigate } from 'react-router-dom';
+import useLogin from './UserAPI';
 
-export default function Login({ user }) {
+export default function Login() {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
     const [click, setClick] = useState(false)
     const naviagate = useNavigate();
-    console.log(user);
+    const { login, error } = useLogin();
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const account = user.find(
-                (acc) => acc.username === username && acc.userpassword === password
-            );
-            console.log(account)
-            if (account) {
-                alert("Dang nhap thanh cong!!")
-                naviagate("/home")
-            } else {
-                alert("Sai mat khau!!")
-            }
+            const result = await login(username, password);
+            console.log("Results", result);
+            alert("Dang nhap thanh cong!");
+            naviagate("/home");
         } catch (err) {
-            console.log(err)
-            alert("Loi ket noi");
+            if (err.response?.status === 401) {
+                alert("Ten dang nhap sai  hoac  mat khau sai??");
+            } else {
+                alert("Loi he thong??");
+            }
         }
     }
 
@@ -69,6 +68,7 @@ export default function Login({ user }) {
                         <Button variant="primary" type="submit" style={{ width: 250 }}>
                             Submit
                         </Button>
+                        {error && <div>{error}</div>}
                         <div className='create-acc'>
                             <p>Don't have account, <a style={{ color: "blue", cursor: "pointer" }} onClick={() => { setClick(true) }}>join us</a></p>
                         </div>

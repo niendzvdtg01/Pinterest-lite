@@ -9,7 +9,7 @@ export default function Body() {
     return (
         <>
             <Header />
-            <UserAPI />
+            <Login />
             <ControlledCarousel />
             <Footer />
         </>
