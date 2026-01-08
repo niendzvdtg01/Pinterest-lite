@@ -5,6 +5,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.gallery.backend.entity.Users;
+import com.gallery.backend.exception.LoginFailException;
 import com.gallery.backend.exception.UserNotFoundException;
 import com.gallery.backend.respository.UsersRepository;
 
@@ -18,7 +19,7 @@ public class AuthService {
         Users user = usersRepository.findByUsername(username)
                 .orElseThrow(() -> new UserNotFoundException("User not found!"));
         if (!encoder.matches(rawPassword, user.getUserpassword())) {
-            throw new UserNotFoundException("Wrong password!!");
+            throw new LoginFailException("Login fail!!!");
         }
         return user;
     }

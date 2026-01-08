@@ -11,9 +11,9 @@ import { Navigate, useNavigate } from 'react-router-dom';
 import useLogin from './UserAPI';
 
 export default function Login() {
-    const [username, setUsername] = useState('')
-    const [password, setPassword] = useState('')
-    const [click, setClick] = useState(false)
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+    const [click, setClick] = useState(false);
     const naviagate = useNavigate();
     const { login, error } = useLogin();
 
@@ -22,6 +22,10 @@ export default function Login() {
         try {
             const result = await login(username, password);
             console.log("Results", result);
+            if (result === undefined) {
+                alert("Dang nhap that bai!!")
+                return;
+            }
             alert("Dang nhap thanh cong!");
             naviagate("/home");
         } catch (err) {
