@@ -21,13 +21,14 @@ export default function Login() {
         e.preventDefault();
         try {
             const result = await login(username, password);
+            console.log("Submitting login:", { username, password });
             console.log("Results", result);
             if (result === undefined) {
                 alert("Dang nhap that bai!!")
                 return;
             }
             alert("Dang nhap thanh cong!");
-            naviagate("/home");
+            naviagate("/gallery");
         } catch (err) {
             if (err.response?.status === 401) {
                 alert("Ten dang nhap sai  hoac  mat khau sai??");

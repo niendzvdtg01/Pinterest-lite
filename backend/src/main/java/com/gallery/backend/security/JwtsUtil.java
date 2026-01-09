@@ -1,8 +1,13 @@
 package com.gallery.backend.security;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.crypto.SecretKey;
+
+import org.apache.tomcat.util.net.openssl.ciphers.Authentication;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
 import com.gallery.backend.entity.Users;
 
@@ -30,5 +35,25 @@ public class JwtsUtil {
                 .parseSignedClaims(token)
                 .getPayload();
         return claims.getSubject();
+    }
+
+    public static boolean validateToken(String token) {
+        try {
+            Claims claims = Jwts.parser() // returns JwtParserBuilder
+                    .verifyWith(SECRET_KEY) // new verifyWith
+                    .build() // build JwtParser
+                    .parseSignedClaims(token) // parse token
+                    .getPayload();
+
+            return claims.getExpiration().after(new Date());
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    public static UsernamePasswordAuthenticationToken getAuthentication(String token) {
+        String username = extracUsername(token);
+        List<SimpleGrantedAuthority> authorities = List.of(new SimpleGrantedAuthority("ROLE_USER"));
+        return new UsernamePasswordAuthenticationToken(username, null, authorities);
     }
 }

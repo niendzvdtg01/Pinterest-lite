@@ -1,9 +1,7 @@
-import { DatePicker } from 'antd';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import Body from './Components/Signin/Body';
 import Gallery from './Components/Body/Gallery';
-import ProtectedRoute from './ProtectedRoute';
 
 function App() {
   return (

@@ -24,7 +24,8 @@ export default function WebAPI({ query }) {
             const res = await axios.get(standardUrl, {
                 params: {
                     keyword: query
-                }
+                },
+                withCredentials: true
             })
             const data = await res.data;
             //fetch them api

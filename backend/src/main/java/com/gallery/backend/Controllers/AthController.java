@@ -28,12 +28,13 @@ public class AthController {
     @PostMapping(path = "/login")
     public ResponseEntity<?> login(@RequestBody LoginRequest request, HttpServletResponse response) {
         Users user = authService.athencate(request.getUsername(), request.getUserpassword());
+
         String token = JwtsUtil.generateToken(user);
         // Tao response cookie
         ResponseCookie cookie = ResponseCookie.from("access_cookie", token)
                 .httpOnly(true)
                 .secure(false)
-                .sameSite("None")
+                .sameSite("Lax")
                 .path("/")
                 .maxAge(Duration.ofMinutes(15))
                 .build();

@@ -9,6 +9,9 @@ export default function useLogin() {
             username: username,
             userpassword: password
         }
+        console.log(userData)
+        console.log("Login URL:", url);
+
         try {
             const response = await axios.post(url, userData,
                 {
@@ -19,7 +22,14 @@ export default function useLogin() {
             setError(null);
             return response.data;
         } catch (err) {
-            setError(err.response?.data?.message || err.message);
+            const message =
+                typeof err.response?.data === "string"
+                    ? err.response.data
+                    : err.response?.data?.message
+                    ?? err.message
+                    ?? "Unknown error";
+            setError(String(message));
+            throw err;
         }
     }
     return { login, error };
