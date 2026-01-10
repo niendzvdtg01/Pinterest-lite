@@ -1,4 +1,4 @@
-import './style.scss'
+import '../style.scss'
 import ImgDetails from './ImageDetails'
 import { useState } from 'react'
 export default function Landcape({ data = [] }) {

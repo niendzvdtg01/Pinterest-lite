@@ -1,12 +1,12 @@
 import Carousel from 'react-bootstrap/Carousel';
-import img3 from '../../assets/Carousel03.jpg'
-import img2 from '../../assets/Carousel02.jpg'
-import img6 from '../../assets/imgcard4.jpg'
-import img4 from '../../assets/Carousel01.jpg'
-import img5 from '../../assets/imgcard6.jpg'
-import img1 from '../../assets/imgcard1.jpg'
-import img7 from '../../assets/imgcard2.jpg'
-import card from '../../assets/Card.jpg'
+import img3 from '../../../assets/Carousel03.jpg'
+import img2 from '../../../assets/Carousel02.jpg'
+import img6 from '../../../assets/imgcard4.jpg'
+import img4 from '../../../assets/Carousel01.jpg'
+import img5 from '../../../assets/imgcard6.jpg'
+import img1 from '../../../assets/imgcard1.jpg'
+import img7 from '../../../assets/imgcard2.jpg'
+import card from '../../../assets/Card.jpg'
 import Card from './Card';
 
 

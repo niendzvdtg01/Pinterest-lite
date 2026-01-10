@@ -1,12 +1,12 @@
 import './style.scss'
-import CustomNav from './Verticalbar'
+import CustomNav from './UI/Verticalbar'
 import dashboard from './img/dashboard.svg'
 import restaurant from './img/restaurant.svg'
 import user from './img/user.svg'
 import order from './img/mangeorder.svg'
 import coupons from './img/coupon.svg'
-import SearchBar from './SearchBar'
-import WebAPI from './WebAPI'
+import SearchBar from './UI/SearchBar'
+import WebAPI from './API/WebAPI'
 import { useState } from 'react'
 
 export default function Gallery() {

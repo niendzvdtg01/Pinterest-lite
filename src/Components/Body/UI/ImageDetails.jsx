@@ -1,26 +1,12 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import LikeButton from "../UI/LikeButton";
+import LikeButton from "../../UI/LikeButton";
 
 export default function ImgDetails(props) {
     const data = props.data
     console.log(data)
     const [save, setSave] = useState(false);
-    const key = import.meta.env.VITE_NIEN
     const url = "http://localhost:8080/gallery_database/unsplash/post";
-    const handleDownload = async () => {
-        try {
-            const res = await axios.get(`${data.links.download_location}`,
-                {
-                    headers: { Authorization: `Client-ID ${key}` }
-                }
-            );
-            window.open(res.data.url, "_blank")
-        } catch (err) {
-            alert("Error: ", err)
-            // console.log(err)
-        }
-    }
 
     //Xu ly insert du lieu vao db
     const handleSave = async (newSave) => {
@@ -36,7 +22,8 @@ export default function ImgDetails(props) {
         try {
             const res = await axios.post(url, loadData,
                 {
-                    headers: { "Content-Type": "application/json" }
+                    headers: { "Content-Type": "application/json" },
+                    withCredentials: true
                 }
             )
             console.log(res)

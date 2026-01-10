@@ -1,9 +1,8 @@
-import { FullPage, Slide } from "react-full-page";
 import Header from "../Header";
-import Login from './mainpage'
-import ControlledCarousel from "./MainInsprition";
+import Login from './UI/mainpage'
+import ControlledCarousel from "./UI/MainInsprition";
 import Footer from "../Footer";
-import UserAPI from "./UserAPI";
+import UserAPI from './API/UserAPI'
 
 export default function Body() {
     return (

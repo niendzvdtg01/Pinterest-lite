@@ -1,5 +1,5 @@
-import './style.scss'
-import searchicon from './img/searchicon.svg'
+import '../style.scss'
+import searchicon from '../img/searchicon.svg'
 import UploadPopup from './UploadPopup'
 import { useState } from 'react'
 

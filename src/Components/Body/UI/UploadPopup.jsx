@@ -1,5 +1,5 @@
-import './style.scss'
-import img from './img/image-regular-full.svg'
+import '../style.scss'
+import img from '../img/image-regular-full.svg'
 import { useRef, useState } from 'react'
 import axios from 'axios';
 export default function UploadPopup(props) {
@@ -24,7 +24,8 @@ export default function UploadPopup(props) {
             formData.append("descriptions", description)
             const res = await axios.post("http://localhost:8080/gallery_database/photo/post", formData,
                 {
-                    headers: { "Content-Type": "multipart/form-data" }
+                    headers: { "Content-Type": "multipart/form-data" },
+                    withCredentials: true
                 }
             )
             console.log(res.data)

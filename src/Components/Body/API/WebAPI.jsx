@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react"
 import axios from "axios";
-import Landcape from "./ImgLandscape";
+import Landcape from '../UI/ImgLandscape'
 import InfiniteScroll from "react-infinite-scroll-component";
-import UploadPopup from "./UploadPopup";
+import UploadPopup from "../UI/UploadPopup";
 
 export default function WebAPI({ query }) {
     // let [results, setResults] = useState("")

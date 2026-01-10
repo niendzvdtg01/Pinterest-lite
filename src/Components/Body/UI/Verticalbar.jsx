@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import menu from './img/ menu.svg'
+import menu from '../img/ menu.svg'
 const CustomNav = ({ li }) => {
     const [window, setWindow] = useState(false);
 
