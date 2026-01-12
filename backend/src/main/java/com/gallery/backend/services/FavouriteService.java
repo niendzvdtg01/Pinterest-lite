@@ -1,5 +1,6 @@
 package com.gallery.backend.services;
 
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 
 import com.gallery.backend.dtorequests.FavouriteCreation;
@@ -27,8 +28,9 @@ public class FavouriteService {
         this.unsplashPhtoResponsitory = unsplashPhtoResponsitory;
     }
 
-    public Favourite saveFavourite(FavouriteCreation requests) {
+    public Favourite saveFavourite(FavouriteCreation requests, Authentication authentication) {
         Favourite favourite = new Favourite();
+        Integer userId = (Integer) authentication.getPrincipal();
         if (requests.getPhotoId() != null) {
             Photo photo = photoResponsitory.findById(requests.getPhotoId())
                     .orElseThrow(() -> new RuntimeException("Photo not found!!!"));
@@ -40,7 +42,7 @@ public class FavouriteService {
         } else {
             throw new RuntimeException("PhotoId and UnsplashId cannot both be null");
         }
-        Users user = usersRepository.findById(requests.getUserId())
+        Users user = usersRepository.findById(userId)
                 .orElseThrow(() -> new RuntimeException("User not found!!!"));
         favourite.setUserId(user);
         return favouriteResponsitory.save(favourite);

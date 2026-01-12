@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.gallery.backend.dtorequests.FavouriteCreation;
 import com.gallery.backend.entity.Favourite;
 import com.gallery.backend.services.FavouriteService;
+
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
@@ -19,7 +21,7 @@ public class FavouriteController {
     }
 
     @PostMapping(path = "/post")
-    public Favourite getFavourite(@RequestBody FavouriteCreation requests) {
-        return favouriteService.saveFavourite(requests);
+    public Favourite getFavourite(@RequestBody FavouriteCreation requests, Authentication authentication) {
+        return favouriteService.saveFavourite(requests, authentication);
     }
 }

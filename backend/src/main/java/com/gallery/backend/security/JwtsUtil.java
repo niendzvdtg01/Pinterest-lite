@@ -21,6 +21,7 @@ public class JwtsUtil {
     public static String generateToken(Users user) {
         return Jwts.builder()
                 .subject(user.getUsername())
+                .claim("userId", user.getUserId())
                 .issuer("Niendz")
                 .issuedAt(new Date())
                 .expiration(new Date(System.currentTimeMillis() + EXPIRATION_TIME))
@@ -28,13 +29,13 @@ public class JwtsUtil {
                 .compact();
     }
 
-    public static String extracUsername(String token) {
+    public static Integer extractUserId(String token) {
         Claims claims = Jwts.parser()
                 .verifyWith(SECRET_KEY)
                 .build()
                 .parseSignedClaims(token)
                 .getPayload();
-        return claims.getSubject();
+        return claims.get("userId", Integer.class);
     }
 
     public static boolean validateToken(String token) {
@@ -52,8 +53,8 @@ public class JwtsUtil {
     }
 
     public static UsernamePasswordAuthenticationToken getAuthentication(String token) {
-        String username = extracUsername(token);
+        Integer userId = extractUserId(token);
         List<SimpleGrantedAuthority> authorities = List.of(new SimpleGrantedAuthority("ROLE_USER"));
-        return new UsernamePasswordAuthenticationToken(username, null, authorities);
+        return new UsernamePasswordAuthenticationToken(userId, null, authorities);
     }
 }

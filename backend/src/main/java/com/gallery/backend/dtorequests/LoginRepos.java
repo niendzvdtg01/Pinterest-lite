@@ -14,5 +14,4 @@ public class LoginRepos {
     public void setToken(String token) {
         this.token = token;
     }
-
 }

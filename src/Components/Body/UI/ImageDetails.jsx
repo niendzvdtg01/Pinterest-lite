@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import LikeButton from "../../UI/LikeButton";
+import FavouriteAPI from "../API/FavouriteAPI";
 
 export default function ImgDetails(props) {
     const data = props.data
@@ -8,7 +9,9 @@ export default function ImgDetails(props) {
     const [save, setSave] = useState(false);
     const url = "http://localhost:8080/gallery_database/unsplash/post";
 
+    const { error, saveFavourite } = FavouriteAPI();
     //Xu ly insert du lieu vao db
+
     const handleSave = async (newSave) => {
         if (!newSave) return;
         if (!data.unsplashId) return;
@@ -32,6 +35,13 @@ export default function ImgDetails(props) {
             alert("Loi: ", err)
         }
     }
+    const handleUserPhoto = async () => {
+        try {
+            await saveFavourite(data.photoId, data.unsplashId);
+        } catch (err) {
+            console.error("Loi: ", err)
+        }
+    }
     useEffect(() => {
         if (props.trigger) {
             document.body.style.overflow = "hidden";
@@ -47,20 +57,25 @@ export default function ImgDetails(props) {
             <div className="imagedetails-background">
                 <div className="imagedetails-popup">
                     <div className="close-btn">
-                        <button onClick={() => { props.setTrigger(false) }}>X</button>
+                        <button onClick={() => {
+                            props.setTrigger(false)
+                        }}>X</button>
                     </div>
-                    <div className="download-btn"><button onClick={handleDownload}>Download</button></div>
+                    <div className="download-btn"><button >Download</button></div>
                     <div className="d-flex">
                         <LikeButton onClick={() => {
                             setSave(prev => {
                                 const newSave = !prev
                                 handleSave(newSave)
                                 return newSave;
-                            })
+                            },
+                                handleUserPhoto()
+                            )
                         }} /></div>
                     <div className="d-flex w-100 mb-5">
                         <img src={data.imageUrl} alt="" style={{ maxWidth: "30%", margin: "0 auto", objectFit: "cover" }} />
                     </div>
+                    {error && <div>{error}</div>}
                 </div>
             </div>
         </>
