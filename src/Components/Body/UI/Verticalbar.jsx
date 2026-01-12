@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import menu from '../img/ menu.svg'
+import { useNavigate } from "react-router-dom";
 const CustomNav = ({ li }) => {
     const [window, setWindow] = useState(false);
-
+    const navigate = useNavigate();
     let openClose = () => {
         if (window === false) {
             setWindow(true);
@@ -19,7 +20,9 @@ const CustomNav = ({ li }) => {
                 <div className="burger_items">
                     <ul className="navbar__list" >
                         {li.map((item, i) => (
-                            <div className="navbar__li-box" key={i}>
+                            <div className="navbar__li-box" key={i} onClick={() => {
+                                navigate(item[2])
+                            }}>
                                 <img
                                     src={item[1]}
                                     alt={item[1]}

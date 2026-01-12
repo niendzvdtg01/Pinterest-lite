@@ -1,5 +1,7 @@
 package com.gallery.backend.services;
 
+import java.util.List;
+
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 
@@ -46,5 +48,9 @@ public class FavouriteService {
                 .orElseThrow(() -> new RuntimeException("User not found!!!"));
         favourite.setUserId(user);
         return favouriteResponsitory.save(favourite);
+    }
+
+    public List<FavouriteCreation> getFavourite(Integer userId) {
+        return favouriteResponsitory.findFavouriteImages(userId);
     }
 }

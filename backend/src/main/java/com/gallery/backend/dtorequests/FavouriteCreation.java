@@ -5,6 +5,7 @@ public class FavouriteCreation {
     private Integer userId;
     private Long photoId;
     private String unsplashId;
+    private String imageUrl;
 
     public Long getFavouriteId() {
         return this.favouriteId;
@@ -36,6 +37,14 @@ public class FavouriteCreation {
 
     public void setUnsplashId(String unsplashId) {
         this.unsplashId = unsplashId;
+    }
+
+    public String getImageUrl() {
+        return this.imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
 }

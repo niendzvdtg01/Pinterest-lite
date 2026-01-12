@@ -10,15 +10,15 @@ import WebAPI from './API/WebAPI'
 import { useState } from 'react'
 
 export default function Gallery() {
-    const [query, setQuery] = useState("")
+    const [query, setQuery] = useState("");
     return (
         <div>
             <div className='row'>
                 <div className='col-sm-2'>
                     <CustomNav
                         li={[
-                            ["Dashboard", dashboard],
-                            ["Restautant’s", restaurant],
+                            ["Dashboard", dashboard, ""],
+                            ["Restautant’s", restaurant, "/favourite"],
                             ["Manage User’s", user],
                             ["Manage Order’s", order],
                             ["Manage Coupon’s", coupons]
