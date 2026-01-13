@@ -6,6 +6,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 
 import com.gallery.backend.dtorequests.FavouriteCreation;
+import com.gallery.backend.dtorequests.FavouriteResponse;
 import com.gallery.backend.entity.Favourite;
 import com.gallery.backend.entity.Photo;
 import com.gallery.backend.entity.UnsplashPhoto;
@@ -50,7 +51,7 @@ public class FavouriteService {
         return favouriteResponsitory.save(favourite);
     }
 
-    public List<FavouriteCreation> getFavourite(Integer userId) {
+    public List<FavouriteResponse> getFavourite(Integer userId) {
         return favouriteResponsitory.findFavouriteImages(userId);
     }
 }

@@ -4,6 +4,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.gallery.backend.dtorequests.FavouriteCreation;
+import com.gallery.backend.dtorequests.FavouriteResponse;
 import com.gallery.backend.entity.Favourite;
 import com.gallery.backend.services.FavouriteService;
 
@@ -29,7 +30,7 @@ public class FavouriteController {
     }
 
     @GetMapping(path = "/get")
-    public List<FavouriteCreation> getFavourite(Authentication authentication) {
+    public List<FavouriteResponse> getFavourite(Authentication authentication) {
         Integer userId = (Integer) authentication.getPrincipal();
         return favouriteService.getFavourite(userId);
     }

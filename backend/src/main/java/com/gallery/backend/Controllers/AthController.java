@@ -36,7 +36,7 @@ public class AthController {
                 .secure(false)
                 .sameSite("Lax")
                 .path("/")
-                .maxAge(Duration.ofMinutes(15))
+                .maxAge(Duration.ofMinutes(60))
                 .build();
 
         response.addHeader(HttpHeaders.SET_COOKIE, cookie.toString());

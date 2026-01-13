@@ -7,6 +7,7 @@ import coupons from '../Body/img/coupon.svg'
 
 import SearchBar from "../Body/UI/SearchBar"
 import CustomNav from "../Body/UI/Verticalbar"
+import Mansory from './UI/Mansory'
 export default function Favourite() {
     return (
         <>
@@ -29,6 +30,7 @@ export default function Favourite() {
                         </div>
 
                         <div className=''>
+                            <Mansory />
                         </div>
                     </div>
 
