@@ -8,9 +8,10 @@ import coupons from '../Body/img/coupon.svg'
 import SearchBar from "../Body/UI/SearchBar"
 import CustomNav from "../Body/UI/Verticalbar"
 import Mansory from './UI/Mansory'
+import { FavouriteProvider } from './API/handleFavouriteAPI'
 export default function Favourite() {
     return (
-        <>
+        <FavouriteProvider>
             <div>
                 <div className='row'>
                     <div className='col-sm-2'>
@@ -36,6 +37,6 @@ export default function Favourite() {
 
                 </div>
             </div>
-        </>
+        </FavouriteProvider>
     )
 }
