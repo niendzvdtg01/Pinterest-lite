@@ -19,7 +19,7 @@ export default function Gallery() {
                         li={[
                             ["Dashboard", dashboard, ""],
                             ["Restautant’s", restaurant, "/favourite"],
-                            ["Manage User’s", user],
+                            ["Manage User’s", user, "/profile"],
                             ["Manage Order’s", order],
                             ["Manage Coupon’s", coupons]
                         ]}
