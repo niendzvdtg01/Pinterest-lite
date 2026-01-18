@@ -37,5 +37,4 @@ public class UnsplashPhotoCreation {
     public void setUnsplashDescription(String unsplashDescription) {
         this.unsplashDescription = unsplashDescription;
     }
-
 }

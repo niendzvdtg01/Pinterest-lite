@@ -24,5 +24,4 @@ public class UnplashProperties {
     public void setBaseUrl(String baseUrl) {
         this.baseUrl = baseUrl;
     }
-
 }
