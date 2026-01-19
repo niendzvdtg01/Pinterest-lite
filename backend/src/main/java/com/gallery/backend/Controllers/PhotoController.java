@@ -3,9 +3,6 @@ package com.gallery.backend.Controllers;
 import com.gallery.backend.services.UnplashService;
 
 import java.util.List;
-import java.util.Optional;
-
-import javax.management.RuntimeErrorException;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;

@@ -33,31 +33,42 @@ export default function Form() {
                         Looks good!
                     </div>
                 </div>
+                <div className="col-md-4">
+                    <label className="form-label">
+                        password
+                    </label>
+                    <input
+                        type="password"
+                        className="form-control"
+                        id="validationCustom02"
+                        required
+                    />
+                    <div className="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
 
                 <div className="col-md-4">
                     <label htmlFor="validationCustomUsername" className="form-label">
-                        Username
+                        email
                     </label>
                     <div className="input-group has-validation">
-                        <span className="input-group-text" id="inputGroupPrepend">
-                            @
-                        </span>
                         <input
-                            type="text"
+                            type="email"
                             className="form-control"
                             id="validationCustomUsername"
                             aria-describedby="inputGroupPrepend"
                             required
                         />
                         <div className="invalid-feedback">
-                            Please choose a username.
+                            Please choose a email.
                         </div>
                     </div>
                 </div>
 
                 <div className="col-md-6">
                     <label htmlFor="validationCustom03" className="form-label">
-                        City
+                        Bio
                     </label>
                     <input
                         type="text"
@@ -66,35 +77,16 @@ export default function Form() {
                         required
                     />
                     <div className="invalid-feedback">
-                        Please provide a valid city.
-                    </div>
-                </div>
-
-                <div className="col-md-3">
-                    <label htmlFor="validationCustom04" className="form-label">
-                        State
-                    </label>
-                    <select
-                        className="form-select"
-                        id="validationCustom04"
-                        required
-                    >
-                        <option value="" disabled>
-                            Choose...
-                        </option>
-                        <option>...</option>
-                    </select>
-                    <div className="invalid-feedback">
-                        Please select a valid state.
+                        Please provide some informations about you.
                     </div>
                 </div>
 
                 <div className="col-md-3">
                     <label htmlFor="validationCustom05" className="form-label">
-                        Zip
+                        Your profile picture.
                     </label>
                     <input
-                        type="text"
+                        type="file"
                         className="form-control"
                         id="validationCustom05"
                         required

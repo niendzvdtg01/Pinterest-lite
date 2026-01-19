@@ -7,6 +7,9 @@ export default function UploadPhoto() {
     return (
         <>
             <div className="mt-3 w-100 p-3">
+                <div className=" d-flex">
+                    <h1 style={{ margin: "0 auto" }}>Your photo you uploaded.</h1>
+                </div>
                 < div className="masonry-layout" >
                     {
                         data.map((photo) => (

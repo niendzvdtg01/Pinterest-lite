@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.gallery.backend.dtorequests.UpdateUserRequest;
 import com.gallery.backend.dtorequests.UserCreation;
 import com.gallery.backend.entity.Users;
 import com.gallery.backend.respository.UsersRepository;
@@ -25,5 +26,10 @@ public class UserService {
         user.setUserpassword(passwordHash);
         usersRepository.save(user);
         return user;
+    }
+
+    public Integer updateUser(Integer userId, UpdateUserRequest request) {
+        return usersRepository.updateUser(userId, request.getEmail(), request.getUserpassword(), request.getFirstname(),
+                request.getLastname(), request.getProfilePicture(), request.getBio());
     }
 }
