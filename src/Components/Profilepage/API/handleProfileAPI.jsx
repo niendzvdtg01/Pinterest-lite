@@ -1,10 +1,14 @@
 import { useCallback, useEffect, useState } from "react";
 import { fetchUploadPhoto } from "./UploadPhotoProfile.api";
 import { UploadPhotoContext } from "./UploadPhotoContext";
+import { fetchUpdateAPI } from "./UpdateProfile.api";
+import { getUser } from "./GetUserAPI.api";
 
 export default function ProfileProvider({ children }) {
     const [uploadPhoto, setUploadPhoto] = useState([]);
+    const [updateUser, setUpdateUser] = useState([]);
     const [loading, setLoading] = useState(false);
+    const [user, setUser] = useState([]);
     const fetchAPI = useCallback(async () => {
         try {
             setLoading(true);
@@ -17,11 +21,29 @@ export default function ProfileProvider({ children }) {
             setLoading(false);
         }
     }, [])
+    const uploadAPI = useCallback(async (formData) => {
+        try {
+            const res = await fetchUpdateAPI(formData);
+            setUpdateUser(res.data);
+        } catch (err) {
+            console.error("Loi: ", err);
+        }
+
+    }, [])
+    const getAPI = useCallback(async () => {
+        try {
+            const res = await getUser();
+            setUser(res.data)
+        } catch (err) {
+            console.error("Loi: ", err);
+        }
+    }, [])
     useEffect(() => {
         fetchAPI()
-    }, [fetchAPI]);
+        getAPI()
+    }, [fetchAPI, getAPI]);
     return (
-        <UploadPhotoContext.Provider value={{ uploadPhoto, loading }}>
+        <UploadPhotoContext.Provider value={{ uploadPhoto, loading, updateUser, uploadAPI, user }}>
             {children}
         </UploadPhotoContext.Provider>
     )

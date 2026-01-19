@@ -61,10 +61,10 @@ export default function UploadPopup(props) {
                 <div className='d-flex image-input'>
                     <input type="text" placeholder='Description' onChange={(e) => { setDescription(e.target.value) }} />
                 </div>
-                <div className='upload-btn d-flex m-3'>
+                <div className='upload-btn d-flex'>
                     <button onClick={handleClick} style={{ margin: "0 auto" }}>Choose file</button>
                 </div>
-                <div className='upload-btn d-flex m-3'>
+                <div className='upload-btn d-flex m-1'>
                     <button onClick={UploadAPI} style={{ margin: "0 auto" }}>Upload file</button>
                 </div>
                 <div className='d-flex'>

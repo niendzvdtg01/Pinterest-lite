@@ -13,10 +13,13 @@ import com.gallery.backend.services.CloudinaryService;
 import com.gallery.backend.services.PhotoService;
 import com.gallery.backend.services.UserService;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -35,8 +38,9 @@ public class UserController {
     }
 
     @GetMapping(path = "/get_user")
-    public @ResponseBody Iterable<Users> getAllUsers() {
-        return usersRepository.findAll();
+    public @ResponseBody List<Users> getAllUsers(Authentication authentication) {
+        int userId = (Integer) authentication.getPrincipal();
+        return userService.getUser(userId);
     }
 
     @PostMapping(path = "/create_user")
@@ -45,7 +49,8 @@ public class UserController {
     }
 
     @PostMapping(path = "/update_user")
-    public ResponseEntity<?> updateuser(@RequestParam("file") MultipartFile file, UpdateUserRequest request,
+    public ResponseEntity<?> updateuser(@RequestParam("file") MultipartFile file,
+            @ModelAttribute UpdateUserRequest request,
             Authentication authentication) {
         try {
             Integer userId = (Integer) authentication.getPrincipal();

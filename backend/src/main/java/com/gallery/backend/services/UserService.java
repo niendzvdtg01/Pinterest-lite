@@ -1,5 +1,8 @@
 package com.gallery.backend.services;
 
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -28,8 +31,12 @@ public class UserService {
         return user;
     }
 
+    public List<Users> getUser(Integer userId) {
+        return usersRepository.findByUserId(userId);
+    }
+
     public Integer updateUser(Integer userId, UpdateUserRequest request) {
-        return usersRepository.updateUser(userId, request.getEmail(), request.getUserpassword(), request.getFirstname(),
+        return usersRepository.updateUser(userId, request.getEmail(), request.getFirstname(),
                 request.getLastname(), request.getProfilePicture(), request.getBio());
     }
 }

@@ -1,7 +1,28 @@
+import { useContext, useState } from "react";
+import { UploadPhotoContext } from "../API/UploadPhotoContext";
+
 export default function Form() {
+    const [firstname, setFirstname] = useState("");
+    const [lastname, setLastname] = useState("");
+    const [email, setEmail] = useState("");
+    const [bio, setBio] = useState("");
+    const [file, setFile] = useState(null);
+
+    const context = useContext(UploadPhotoContext);
+    // console.log(context.uploadAPI);
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const formData = new FormData();
+        formData.append("email", email);
+        formData.append("firstname", firstname);
+        formData.append("lastname", lastname);
+        formData.append("file", file);
+        formData.append("bio", bio);
+        context.uploadAPI(formData);
+    }
     return (
         <>
-            <form className="row g-3 needs-validation" noValidate>
+            <form className="row g-3 needs-validation" noValidate onSubmit={handleSubmit}>
                 <div className="col-md-4">
                     <label htmlFor="validationCustom01" className="form-label">
                         First name
@@ -12,6 +33,9 @@ export default function Form() {
                         id="validationCustom01"
                         defaultValue="Mark"
                         required
+                        onChange={(e) => {
+                            setFirstname(e.target.value)
+                        }}
                     />
                     <div className="valid-feedback">
                         Looks good!
@@ -28,26 +52,14 @@ export default function Form() {
                         id="validationCustom02"
                         defaultValue="Otto"
                         required
+                        onChange={(e) => {
+                            setLastname(e.target.value)
+                        }}
                     />
                     <div className="valid-feedback">
                         Looks good!
                     </div>
                 </div>
-                <div className="col-md-4">
-                    <label className="form-label">
-                        password
-                    </label>
-                    <input
-                        type="password"
-                        className="form-control"
-                        id="validationCustom02"
-                        required
-                    />
-                    <div className="valid-feedback">
-                        Looks good!
-                    </div>
-                </div>
-
                 <div className="col-md-4">
                     <label htmlFor="validationCustomUsername" className="form-label">
                         email
@@ -59,6 +71,9 @@ export default function Form() {
                             id="validationCustomUsername"
                             aria-describedby="inputGroupPrepend"
                             required
+                            onChange={(e) => {
+                                setEmail(e.target.value)
+                            }}
                         />
                         <div className="invalid-feedback">
                             Please choose a email.
@@ -75,6 +90,9 @@ export default function Form() {
                         className="form-control"
                         id="validationCustom03"
                         required
+                        onChange={(e) => {
+                            setBio(e.target.value)
+                        }}
                     />
                     <div className="invalid-feedback">
                         Please provide some informations about you.
@@ -90,6 +108,10 @@ export default function Form() {
                         className="form-control"
                         id="validationCustom05"
                         required
+                        onChange={(e) => {
+                            setFile(e.target.files[0]);
+                        }}
+                        accept="image/*"
                     />
                     <div className="invalid-feedback">
                         Please provide a valid zip.
@@ -118,7 +140,7 @@ export default function Form() {
 
                 <div className="col-12">
                     <button className="btn btn-primary" type="submit">
-                        Submit form
+                        Change your information.
                     </button>
                 </div>
             </form>
