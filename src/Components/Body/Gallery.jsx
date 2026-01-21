@@ -20,7 +20,7 @@ export default function Gallery() {
                             ["Dashboard", dashboard, ""],
                             ["Restautant’s", restaurant, "/favourite"],
                             ["Manage User’s", user, "/profile"],
-                            ["Manage Order’s", order],
+                            ["Manage Order’s", order, "/category"],
                             ["Manage Coupon’s", coupons]
                         ]}
                     />

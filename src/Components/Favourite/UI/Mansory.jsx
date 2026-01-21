@@ -5,8 +5,8 @@ export default function Mansory() {
     const data = context.favourites;
     return (
         <>
-            <div className="mt-3 w-100 p-3">
-                < div className="masonry-layout" >
+            <div className="w-100">
+                < div className="newmasonry-layout" >
                     {
                         data.map((photo) => (
                             <div key={photo.id} className="masonry-item">
