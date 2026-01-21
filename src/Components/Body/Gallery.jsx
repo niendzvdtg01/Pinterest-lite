@@ -17,11 +17,11 @@ export default function Gallery() {
                 <div className='col-sm-2'>
                     <CustomNav
                         li={[
-                            ["Dashboard", dashboard, ""],
-                            ["Restautant’s", restaurant, "/favourite"],
-                            ["Manage User’s", user, "/profile"],
-                            ["Manage Order’s", order, "/category"],
-                            ["Manage Coupon’s", coupons]
+                            ["Dashboard", dashboard, "/gallery"],
+                            ["Category", order, "/category"],
+                            ["Collection", restaurant, "/favourite"],
+                            ["User", user, "/profile"],
+                            ["Feedback", coupons]
                         ]}
                     />
                 </div>

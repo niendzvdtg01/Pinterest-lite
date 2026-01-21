@@ -18,10 +18,10 @@ export default function Favourite() {
                         <CustomNav
                             li={[
                                 ["Dashboard", dashboard, "/gallery"],
-                                ["Restautant’s", restaurant, "/favourite"],
-                                ["Manage User’s", user, "/profile"],
-                                ["Manage Order’s", order, "/category"],
-                                ["Manage Coupon’s", coupons]
+                                ["Category", order, "/category"],
+                                ["Collection", restaurant, "/favourite"],
+                                ["User", user, "/profile"],
+                                ["Feedback", coupons]
                             ]}
                         />
                     </div>

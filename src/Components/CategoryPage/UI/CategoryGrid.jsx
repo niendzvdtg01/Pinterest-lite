@@ -7,8 +7,10 @@ import img6 from '../img/travel.jpg'
 import img7 from '../img/game.jpg'
 import img8 from '../img/health.jpg'
 import CategoryCard from "./CategoryCard"
+import { useContext, useState } from 'react'
+import { CategoryContext } from '../API/CategoryContext'
 
-export const CategoryGrid = () => {
+export const CategoryGrid = ({ setClick }) => {
     const cards = [
         { img: img1, content: "nature" },
         { img: img2, content: "animal" },
@@ -19,13 +21,17 @@ export const CategoryGrid = () => {
         { img: img7, content: "game" },
         { img: img8, content: "health" }
     ]
+    const [trigger, setTrigger] = useState(true);
+    const context = useContext(CategoryContext)
     return (
-        <>
-            <div className='d-flex' style={{ flexWrap: "wrap" }}>
-                {cards.map((data) => (
-                    <CategoryCard img={data.img} content={data.content} />
-                ))};
-            </div>
-        </>
+        trigger ? <div className='d-flex' style={{ flexWrap: "wrap" }}>
+            {cards.map((data) => (
+                <CategoryCard img={data.img} content={data.content} onClick={() => {
+                    context.handleCategoryAPI(data.content);
+                    setTrigger(false)
+                    setClick(false)
+                }} />
+            ))};
+        </div> : ""
     )
 }

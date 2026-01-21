@@ -1,0 +1,85 @@
+.masonry-item {
+    break-inside: avoid;
+    margin-bottom: 15px;
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.masonry-item img {
+    width: 100%;
+    border-radius: 12px;
+    display: block;
+    opacity: 1;
+    height: auto;
+    transition: .5s ease;
+    backface-visibility: hidden;
+    z-index: 0;
+}
+
+.author {
+    margin-top: 5px;
+    font-size: 13px;
+    text-align: center;
+    color: #666;
+}
+
+.masonry-layout {
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    max-width: 1290px;
+    column-count: 5;
+    column-gap: 15px;
+    padding: 5px;
+}
+
+.masonry-layout img {
+    width: 100%;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    break-inside: avoid;
+    z-index: 0;
+}
+
+//Tao overlay
+.masonry-item .overlay {
+    border-radius: 12px;
+    width: 100%;
+    height: 100%;
+    transition: 0.4s ease;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    cursor: zoom-in;
+}
+
+.masonry-item:hover .overlay {
+    opacity: 1;
+}
+
+.masonry-item:hover {
+    scale: (1.02);
+}
+
+//responsive
+@media (max-width: 1200px) {
+    .masonry-layout {
+        column-count: 4;
+    }
+}
+
+@media (max-width: 768px) {
+    .masonry-layout {
+        column-count: 2;
+    }
+}
+
+@media (max-width: 576px) {
+    .masonry-layout {
+        column-count: 1;
+    }
+}

@@ -59,7 +59,7 @@ public class UnplashService {
         }
 
         public List<PhotoResponse> searchPhoto(String keyword) {
-                String url = "https://api.unsplash.com/search/photos?query=" + keyword;
+                String url = "https://api.unsplash.com/search/photos" + "?query=" + keyword + "&per_page=30";
 
                 HttpEntity<Void> entity = new HttpEntity<>(headers());
 
