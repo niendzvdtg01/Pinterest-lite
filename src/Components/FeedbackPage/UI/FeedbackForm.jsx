@@ -1,16 +1,35 @@
 // Make sure to run npm install @formspree/react
 // For more help visit https://formspr.ee/react-help
 import '../feedback.scss'
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useForm, ValidationError } from "@formspree/react";
 import { useNavigate } from 'react-router-dom';
+import { FeedbackContext } from '../API/FeedbackContext';
 
 export function FeedbackForm() {
     const [state, handleSubmit] = useForm("FORM_ID");
-    const [score, setScore] = useState(0);
-    console.log(score);
+    const [fullname, setFullname] = useState("")
+    const [email, setEmail] = useState("")
+    const [score, setScore] = useState(8);
+    const [scoreReason, setScoreReason] = useState("");
+    const [improvement, setImprovement] = useState("");
+    const [goodExperience, setGoodExperience] = useState("");
+    const context = useContext(FeedbackContext);
     const naviagate = useNavigate();
-
+    console.log(score)
+    const handleFeedback = async (e) => {
+        e.preventDefault();
+        const feedback = {
+            fullName: fullname,
+            email: email,
+            score: score,
+            scoreReason: scoreReason,
+            improvement: improvement,
+            goodExperience: goodExperience
+        }
+        context.handleFeedbackAPI(feedback);
+        await handleSubmit(e);
+    }
     if (state.succeeded) {
         return <p>Thanks for joining!</p>;
     }
@@ -26,6 +45,9 @@ export function FeedbackForm() {
                     id="full-name"
                     name="full-name"
                     placeholder="Enter your name (optional)"
+                    onChange={(e) => {
+                        setFullname(e.target.value)
+                    }}
                 />
             </div>
             <div className="fs-field">
@@ -37,18 +59,9 @@ export function FeedbackForm() {
                     id="email-address"
                     name="email-address"
                     placeholder="Enter your email address (optional)"
-                />
-            </div>
-            <div className="fs-field">
-                <label className="fs-label" htmlFor="response-date">
-                    Date
-                </label>
-                <input
-                    className="fs-input"
-                    id="response-date"
-                    name="response-date"
-                    placeholder="Select the date"
-                    required
+                    onChange={(e) => {
+                        setEmail(e.target.value)
+                    }}
                 />
             </div>
             <div
@@ -70,7 +83,7 @@ export function FeedbackForm() {
                     step="1"
                     type="range"
                     onChange={(e) => {
-                        setScore(e.target.value)
+                        setScore(Number(e.target.value))
                     }}
                 />
                 <div className="slider-label-container">
@@ -97,6 +110,9 @@ export function FeedbackForm() {
                     name="score-reason"
                     placeholder="Explain why you gave us this score"
                     required
+                    onChange={(e) => {
+                        setScoreReason(e.target.value)
+                    }}
                 />
             </div>
             <div className="fs-field">
@@ -108,6 +124,9 @@ export function FeedbackForm() {
                     id="improvement-suggestion"
                     name="improvement-suggestion"
                     placeholder="Let us know what we can improve (optional)"
+                    onChange={(e) => {
+                        setImprovement(e.target.value)
+                    }}
                 />
             </div>
             <div className="fs-field">
@@ -119,6 +138,9 @@ export function FeedbackForm() {
                     id="positive-feedback"
                     name="positive-feedback"
                     placeholder="Tell us what worked well for you (optional)"
+                    onChange={(e) => {
+                        setGoodExperience(e.target.value)
+                    }}
                 />
             </div>
             <div className="fs-field">
@@ -179,7 +201,7 @@ export function FeedbackForm() {
                 </div>
             </div>
             <div class="fs-button-group">
-                <button className="fs-button" type="submit">
+                <button className="fs-button" type="submit" onClick={handleFeedback}>
                     Submit
                 </button>
                 <button className="fs-button" onClick={() => {

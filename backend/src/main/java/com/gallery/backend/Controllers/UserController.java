@@ -10,7 +10,6 @@ import com.gallery.backend.dtorequests.UserCreation;
 import com.gallery.backend.entity.Users;
 import com.gallery.backend.respository.UsersRepository;
 import com.gallery.backend.services.CloudinaryService;
-import com.gallery.backend.services.PhotoService;
 import com.gallery.backend.services.UserService;
 
 import java.util.List;
