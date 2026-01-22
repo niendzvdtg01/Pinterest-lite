@@ -1,12 +1,14 @@
 // Make sure to run npm install @formspree/react
 // For more help visit https://formspr.ee/react-help
 import '../feedback.scss'
-import React from "react";
+import React, { useState } from "react";
 import { useForm, ValidationError } from "@formspree/react";
 import { useNavigate } from 'react-router-dom';
 
 export function FeedbackForm() {
     const [state, handleSubmit] = useForm("FORM_ID");
+    const [score, setScore] = useState(0);
+    console.log(score);
     const naviagate = useNavigate();
 
     if (state.succeeded) {
@@ -35,17 +37,6 @@ export function FeedbackForm() {
                     id="email-address"
                     name="email-address"
                     placeholder="Enter your email address (optional)"
-                />
-            </div>
-            <div className="fs-field">
-                <label className="fs-label" htmlFor="company-name">
-                    Company Name
-                </label>
-                <input
-                    className="fs-input"
-                    id="company-name"
-                    name="company-name"
-                    placeholder="Enter your company name (optional)"
                 />
             </div>
             <div className="fs-field">
@@ -78,6 +69,9 @@ export function FeedbackForm() {
                     required
                     step="1"
                     type="range"
+                    onChange={(e) => {
+                        setScore(e.target.value)
+                    }}
                 />
                 <div className="slider-label-container">
                     <span className="slider-label-text">0</span>

@@ -1,3 +1,4 @@
+import { Footer } from "../UI/LiteFooter";
 import ProfileProvider from "./API/handleProfileAPI";
 import Form from "./UI/Form";
 import ProfileCard from "./UI/ProfileCard";
@@ -17,6 +18,7 @@ export default function Profilepage() {
                     <UploadPhoto />
                 </div>
             </div>
+            <div><Footer /></div>
         </ProfileProvider>
     )
 }

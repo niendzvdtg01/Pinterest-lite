@@ -1,3 +1,4 @@
+import { Footer } from "../UI/LiteFooter";
 import { FeedbackForm } from "./UI/FeedbackForm";
 import { Header } from "./UI/Header";
 
@@ -7,6 +8,9 @@ export default function Feedback() {
             <div><Header /></div>
             <div className="container mt-5">
                 <FeedbackForm />
+            </div>
+            <div>
+                <Footer />
             </div>
         </>
     )
