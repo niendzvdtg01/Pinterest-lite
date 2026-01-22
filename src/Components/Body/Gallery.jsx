@@ -21,7 +21,7 @@ export default function Gallery() {
                             ["Category", order, "/category"],
                             ["Collection", restaurant, "/favourite"],
                             ["User", user, "/profile"],
-                            ["Feedback", coupons]
+                            ["Feedback", coupons, "/feedback"]
                         ]}
                     />
                 </div>
