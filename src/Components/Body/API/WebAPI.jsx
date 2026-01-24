@@ -20,7 +20,6 @@ export default function WebAPI({ query }) {
             - Truyen key
             - truyen paramater
             */
-
             const res = await axios.get(standardUrl, {
                 params: {
                     keyword: query

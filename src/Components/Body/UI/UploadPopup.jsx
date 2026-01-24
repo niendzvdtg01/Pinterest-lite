@@ -2,6 +2,7 @@ import '../style.scss'
 import img from '../img/image-regular-full.svg'
 import { useRef, useState } from 'react'
 import axios from 'axios';
+import { toast, ToastContainer } from 'react-toastify';
 export default function UploadPopup(props) {
     const fileInput = useRef(null);
     const [filename, setFilename] = useState([])
@@ -29,7 +30,9 @@ export default function UploadPopup(props) {
                 }
             )
             console.log(res.data)
-            alert("Upload file thanh cong")
+            toast.success("Upload thanh cong!!", {
+                containerId: "upload-toast"
+            })
         } catch (err) {
             console.log(err);
         }
@@ -71,6 +74,11 @@ export default function UploadPopup(props) {
                     <p style={{ margin: "0 auto" }}>{filename.name || "no image chosen"}</p>
                 </div>
             </div>
+            <ToastContainer
+                containerId="upload-toast"
+                position="top-center"
+                autoClose={2000}
+            />
         </div>
     ) : ""
 }

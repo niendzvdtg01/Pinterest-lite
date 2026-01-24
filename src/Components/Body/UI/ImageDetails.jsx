@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import LikeButton from "../../UI/LikeButton";
 import FavouriteAPI from "../API/FavouriteAPI";
+import { toast, ToastContainer } from 'react-toastify';
 
 export default function ImgDetails(props) {
     const data = props.data
@@ -30,9 +31,13 @@ export default function ImgDetails(props) {
                 }
             )
             console.log(res)
-            alert("Insert thanh cong!!!")
+            toast.success("Luu thanh cong!", {
+                containerId: "popup-toast"
+            });
         } catch (err) {
-            alert("Loi: ", err)
+            toast.error("Luu that bai!", err, {
+                containerId: "popup-toast"
+            })
         }
     }
     const handleUserPhoto = async () => {
@@ -61,7 +66,7 @@ export default function ImgDetails(props) {
                             props.setTrigger(false)
                         }}>X</button>
                     </div>
-                    <div className="download-btn"><button >Download</button></div>
+                    <div className="download-btn"><a href={data.imageUrl} style={{ margin: "0 auto" }} download={data.title} target="_blank"> Download</a></div>
                     <div className="d-flex">
                         <LikeButton onClick={() => {
                             setSave(prev => {
@@ -77,6 +82,11 @@ export default function ImgDetails(props) {
                     </div>
                     {error && <div>{error}</div>}
                 </div>
+                <ToastContainer
+                    containerId="popup-toast"
+                    position="top-center"
+                    autoClose={2000}
+                />
             </div>
         </>
     ) : "";

@@ -15,6 +15,7 @@ import com.gallery.backend.respository.FavouriteResponsitory;
 import com.gallery.backend.respository.PhotoResponsitory;
 import com.gallery.backend.respository.UnsplashPhotoResponsitory;
 import com.gallery.backend.respository.UsersRepository;
+import jakarta.transaction.Transactional;
 
 @Service
 public class FavouriteService {
@@ -31,6 +32,7 @@ public class FavouriteService {
         this.unsplashPhtoResponsitory = unsplashPhtoResponsitory;
     }
 
+    @Transactional
     public Favourite saveFavourite(FavouriteCreation requests, Authentication authentication) {
         Favourite favourite = new Favourite();
         Integer userId = (Integer) authentication.getPrincipal();

@@ -13,10 +13,7 @@ export default function FavouriteAPI() {
             const res = await axios.post(url, saveData, {
                 headers: { "Content-Type": "application/json" },
                 withCredentials: true
-
             })
-            console.log(res)
-            alert("insert thanh cong!")
             return res.data;
         } catch (err) {
             console.error(err)

@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -75,13 +76,15 @@ public class UnplashService {
         }
 
         public UnsplashPhoto saveUnsplash(UnsplashPhotoCreation requests) {
-                return unsplashPhtoResponsitory.findById(requests.getUnsplashId()).orElseGet(() -> {
+                try {
                         UnsplashPhoto unsplashPhoto = new UnsplashPhoto();
                         unsplashPhoto.setUnsplashId(requests.getUnsplashId());
                         unsplashPhoto.setUnsplashUrl(requests.getUnsplashUrl());
                         unsplashPhoto.setUnsplashTitle(requests.getUnsplashTitle());
                         unsplashPhoto.setUnsplashDescription(requests.getUnsplashDescription());
                         return unsplashPhtoResponsitory.save(unsplashPhoto);
-                });
+                } catch (DataIntegrityViolationException e) {
+                        return unsplashPhtoResponsitory.findById(requests.getUnsplashId()).orElseThrow();
+                }
         }
 }

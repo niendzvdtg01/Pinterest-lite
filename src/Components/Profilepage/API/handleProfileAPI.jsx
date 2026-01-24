@@ -3,6 +3,7 @@ import { fetchUploadPhoto } from "./UploadPhotoProfile.api";
 import { UploadPhotoContext } from "./UploadPhotoContext";
 import { fetchUpdateAPI } from "./UpdateProfile.api";
 import { getUser } from "./GetUserAPI.api";
+import { toast } from "react-toastify";
 
 export default function ProfileProvider({ children }) {
     const [uploadPhoto, setUploadPhoto] = useState([]);
@@ -25,6 +26,7 @@ export default function ProfileProvider({ children }) {
         try {
             const res = await fetchUpdateAPI(formData);
             setUpdateUser(res.data);
+            toast.success("Sua thong tin thanh cong")
         } catch (err) {
             console.error("Loi: ", err);
         }

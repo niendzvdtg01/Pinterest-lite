@@ -156,6 +156,8 @@ $borderLeftColor: #58b5fc;
     border-radius: 10px;
     break-inside: avoid;
     z-index: 0;
+    height: auto;
+    display: block;
 }
 
 //Tao overlay
@@ -163,18 +165,22 @@ $borderLeftColor: #58b5fc;
     border-radius: 12px;
     width: 100%;
     height: 100%;
-    transition: 0.4s ease;
-    opacity: 0;
     position: absolute;
-    top: 0;
-    left: 0;
+    inset: 0;
+
     background-color: rgba(0, 0, 0, 0.2);
-    z-index: 1;
-    cursor: zoom-in;
+
+    opacity: 1;
+    /* luôn = 1 */
+    visibility: hidden;
+    pointer-events: none;
+
+    transition: visibility 0.3s ease;
 }
 
 .masonry-item:hover .overlay {
-    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
 }
 
 .masonry-item:hover {
@@ -265,13 +271,25 @@ $borderLeftColor: #58b5fc;
     overflow-y: auto;
 }
 
-.download-btn button {
+.download-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin: 2%;
     width: 10%;
     min-height: 50px;
     border-radius: 30px;
     border: 1px solid #ccc;
-    background-color: aquamarine;
+    background-color: rgb(11, 73, 155);
+}
+
+.download-btn a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.download-btn:hover {
+    background-color: rgb(87, 209, 209);
 }
 
 .image-input input[type="text"] {

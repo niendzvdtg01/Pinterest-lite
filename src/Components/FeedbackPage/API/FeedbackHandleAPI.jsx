@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 import { FeedbackAPI } from "./Feedback.api";
 import { FeedbackContext } from "./FeedbackContext";
+import { toast } from "react-toastify";
 
 export default function FeedbackHandleAPI({ children }) {
     const [data, setData] = useState("");
@@ -10,7 +11,7 @@ export default function FeedbackHandleAPI({ children }) {
             setLoading(true)
             const res = await FeedbackAPI(feedback);
             setData(res.data);
-            alert("Upload thanh cong!!!");
+            toast.success("Gui thong tin thanh cong!");
         } catch (err) {
             console.error("Loi: ", err)
         } finally {

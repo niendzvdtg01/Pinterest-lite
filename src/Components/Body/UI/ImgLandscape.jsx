@@ -1,7 +1,12 @@
 import '../style.scss'
 import ImgDetails from './ImageDetails'
 import { useState } from 'react'
-export default function Landcape({ data = [] }) {
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
+export default function Landcape(props) {
+    const data = props.data;
+    // const loading = props.loading;
+    const [loadingImage, setLoadingImage] = useState(true);
     const [click, setClick] = useState(false);
     const [image, setImage] = useState([])
     if (!data.length) {
@@ -16,17 +21,24 @@ export default function Landcape({ data = [] }) {
             < div className="masonry-layout" >
                 {
                     data.map((photo) => (
-                        <div key={photo.id} className="masonry-item">
+                        <div key={photo.photoId} className="masonry-item">
+                            {loadingImage && (
+                                <Skeleton
+                                    height={300}
+                                    width="30%"
+                                    style={{ margin: "0 auto" }}
+                                />
+                            )}
                             <a onClick={() => {
                                 setClick(true)
                                 setImage(photo)
                             }} >
                                 <div class="overlay">
                                 </div>
-
                                 <img
                                     src={photo.imageUrl}
                                     alt={photo.descriptions || "unsplash picture"}
+                                    onLoad={() => setLoadingImage(false)}
                                 />
                             </a>
                             <p className="author">
