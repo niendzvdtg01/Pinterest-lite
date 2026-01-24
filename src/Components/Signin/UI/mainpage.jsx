@@ -4,7 +4,7 @@ import Container from 'react-bootstrap/esm/Container';
 import Image from 'react-bootstrap/esm/Image';
 import '../mainpage.scss'
 import logo from '../../../assets/Logo.png'
-import BG from '../../../assets/MainBG.jpg'
+import BG from '../../../assets/MainBG .jpg'
 import { useState } from 'react';
 import SigninPopup from './SigninPopup';
 import { Navigate, useNavigate } from 'react-router-dom';
