@@ -14,7 +14,6 @@
     "@emotion/styled": "^11.14.1",
     "@fontsource/roboto": "^5.2.6",
     "@formspree/react": "^3.0.0",
-    "@fullpage/react-fullpage": "^0.1.49",
     "@mui/icons-material": "^7.3.2",
     "@mui/material": "^7.3.2",
     "antd": "^5.27.3",
