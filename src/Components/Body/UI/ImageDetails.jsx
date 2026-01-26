@@ -8,7 +8,7 @@ export default function ImgDetails(props) {
     const data = props.data
     console.log(data)
     const [save, setSave] = useState(false);
-    const url = "http://localhost:8080/gallery_database/unsplash/post";
+    const url = "http://localhost:8080/unsplash/post";
 
     const { error, saveFavourite } = FavouriteAPI();
     //Xu ly insert du lieu vao db

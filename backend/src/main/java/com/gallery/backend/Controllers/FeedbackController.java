@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.gallery.backend.dtorequests.FeedbackCreation;
 import com.gallery.backend.services.FeedbackService;
 
-import lombok.RequiredArgsConstructor;
+
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;

@@ -3,7 +3,7 @@ import { useState } from "react";
 
 export default function useLogin() {
     const [error, setError] = useState(null);
-    const url = import.meta.env.VITE_LOGIN;
+    const url = "http://localhost:8080/auth/login";
     const login = async (username, password) => {
         const userData = {
             username: username,

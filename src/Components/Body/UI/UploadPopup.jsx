@@ -23,7 +23,7 @@ export default function UploadPopup(props) {
             formData.append("file", file);
             formData.append("title", title)
             formData.append("descriptions", description)
-            const res = await axios.post("http://localhost:8080/gallery_database/photo/post", formData,
+            const res = await axios.post("http://localhost:8080/photo/post", formData,
                 {
                     headers: { "Content-Type": "multipart/form-data" },
                     withCredentials: true

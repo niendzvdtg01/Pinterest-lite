@@ -11,7 +11,7 @@ export default function WebAPI({ query }) {
     // }
     const [photos, setPhotos] = useState([]);
     const [page, setPage] = useState(1);
-    const standardUrl = "http://localhost:8080/gallery_database/photo/image"
+    const standardUrl = "http://localhost:8080/photo/image"
     console.log(query)
     const FetchAPI = async () => {
         try {

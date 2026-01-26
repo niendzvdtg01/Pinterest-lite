@@ -3,7 +3,7 @@ import { useState } from "react"
 
 export default function FavouriteAPI() {
     const [err, setError] = useState(null);
-    const url = "http://localhost:8080/gallery_database/favourite/post";
+    const url = "http://localhost:8080/favourite/post";
     const saveFavourite = async (photoId, unsplashId) => {
         const saveData = {
             photoId: photoId,
