@@ -1,7 +1,7 @@
 export default function CategoryCard(props) {
     return (
         <>
-            <div className="card m-3" style={{ width: "18rem" }}>
+            <div className="card m-3" style={{ width: "20%" }}>
                 <img src={props.img} className="card-img-top" alt="Category Image" />
                 <div className="card-body">
                     <h5 className="card-title">Card title</h5>

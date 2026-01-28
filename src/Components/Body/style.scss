@@ -77,9 +77,14 @@ $borderLeftColor: #58b5fc;
 }
 
 //Thanh search
+.search-wrapper {
+    margin: 0 auto;
+    width: 75%;
+}
+
 .search-container {
-    min-width: 100%;
-    height: 50px;
+    width: 100%;
+    height: 3rem;
     border: none;
     border-radius: 30px;
     display: flex;
@@ -142,9 +147,9 @@ $borderLeftColor: #58b5fc;
 
 .masonry-layout {
     justify-content: center;
+    min-width: 80%;
     align-items: center;
     margin-top: 50px;
-    max-width: 1290px;
     column-count: 5;
     column-gap: 15px;
     padding: 5px;

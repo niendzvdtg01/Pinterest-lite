@@ -7,7 +7,7 @@ export default function SearchBar({ setQuery }) {
     const [click, setClick] = useState(false);
     // console.log(query)
     return (
-        <><div className="container position-fixed d-flex"
+        <><div className="search-wrapper position-fixed d-flex"
             style={{
                 backgroundColor: "white",
                 borderRadius: "0 0 30px 30px",

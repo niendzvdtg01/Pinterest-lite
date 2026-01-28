@@ -13,7 +13,7 @@ const CustomNav = ({ li }) => {
     };
     return (
         <div className="position-fixed">
-            <nav className="navbar-menu" style={{ width: window === false ? 250 : 60 }}>
+            <nav className="navbar-menu" style={{ width: window === false ? "14rem" : "4rem" }}>
                 <div className="burger" onClick={() => openClose()}>
                     <img src={menu} alt="burger" />
                 </div>
