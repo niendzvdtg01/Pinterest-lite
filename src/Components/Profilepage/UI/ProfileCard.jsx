@@ -7,22 +7,55 @@ export default function ProfileCard() {
     const navigate = useNavigate();
     const context = useContext(UploadPhotoContext);
     const user = context.user;
-    console.log(user);
+
     return (
-        <>
-            <div className="container mt-3">
-                <div className="card" style={{ width: "400px" }}>
-                    <img className="card-img-top card-img" src={user?.[0]?.profilePicture} alt="Card image" style={{ width: "100%" }} />
-                    <div className="card-body">
-                        <h4 className="card-title">{user?.[0]?.firstname}</h4>
-                        <p className="card-text">{user?.[0]?.bio}</p>
-                        <a className="btn btn-primary m-3" onClick={() => {
-                            navigate("/gallery")
-                        }}>Go back to your dashboard.</a>
-                        <a href="#" className="btn btn-primary m-3">Logout</a>
+        <div className="container d-flex justify-content-center mt-5">
+            <div className="card shadow-lg border-0 text-center" style={{ width: "380px" }}>
+
+                {/* Avatar */}
+                <div className="d-flex justify-content-center mt-4">
+                    <img
+                        src={user?.[0]?.profilePicture}
+                        alt="Profile"
+                        className="rounded-circle"
+                        style={{
+                            width: "140px",
+                            height: "140px",
+                            objectFit: "cover",
+                            border: "4px solid #f1f1f1"
+                        }}
+                    />
+                </div>
+
+                {/* Info */}
+                <div className="card-body px-4">
+                    <h4 className="card-title mt-3 mb-1">
+                        {user?.[0]?.firstname}
+                    </h4>
+
+                    <p className="text-muted mb-3">
+                        Photographer & Visual Creator
+                    </p>
+
+                    <p className="card-text">
+                        {user?.[0]?.bio}
+                    </p>
+
+                    {/* Actions */}
+                    <div className="d-grid gap-2 mt-4">
+                        <button
+                            className="btn btn-dark"
+                            onClick={() => navigate("/gallery")}
+                        >
+                            Go to Dashboard
+                        </button>
+
+                        <button className="btn btn-outline-secondary">
+                            Logout
+                        </button>
                     </div>
                 </div>
             </div>
-        </>
+        </div>
     )
 }

@@ -13,24 +13,28 @@ function Header() {
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="me-auto">
-                        <Nav.Link href="#features">Features</Nav.Link>
-                        <Nav.Link href="#pricing">Pricing</Nav.Link>
-                        <NavDropdown title="Dropdown" id="collapsible-nav-dropdown">
-                            <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.2">
-                                Another action
+                        <Nav.Link href="#features">Gallery</Nav.Link>
+                        <Nav.Link href="#pricing">Collections</Nav.Link>
+                        <NavDropdown title="Explore" id="collapsible-nav-dropdown">
+                            <NavDropdown.Item href="#action/3.1">
+                                Landscape Photography
                             </NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+                            <NavDropdown.Item href="#action/3.2">
+                                Urban & Street
+                            </NavDropdown.Item>
+                            <NavDropdown.Item href="#action/3.3">
+                                Portrait & Lifestyle
+                            </NavDropdown.Item>
                             <NavDropdown.Divider />
                             <NavDropdown.Item href="#action/3.4">
-                                Separated link
+                                Creative Concepts
                             </NavDropdown.Item>
                         </NavDropdown>
                     </Nav>
                     <Nav>
-                        <Nav.Link href="#deets">More deets</Nav.Link>
+                        <Nav.Link href="#deets">Contribute</Nav.Link>
                         <Nav.Link eventKey={2} href="#memes">
-                            Dank memes
+                            Sign In
                         </Nav.Link>
                     </Nav>
                 </Navbar.Collapse>

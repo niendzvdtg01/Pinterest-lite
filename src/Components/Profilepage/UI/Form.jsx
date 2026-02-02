@@ -9,7 +9,7 @@ export default function Form() {
     const [file, setFile] = useState(null);
 
     const context = useContext(UploadPhotoContext);
-    // console.log(context.uploadAPI);
+
     const handleSubmit = (e) => {
         e.preventDefault();
         const formData = new FormData();
@@ -19,131 +19,109 @@ export default function Form() {
         formData.append("file", file);
         formData.append("bio", bio);
         context.uploadAPI(formData);
-    }
+    };
+
     return (
-        <>
-            <form className="row g-3 needs-validation" noValidate onSubmit={handleSubmit}>
-                <div className="col-md-4">
-                    <label htmlFor="validationCustom01" className="form-label">
-                        First name
-                    </label>
-                    <input
-                        type="text"
-                        className="form-control"
-                        id="validationCustom01"
-                        defaultValue="Mark"
-                        required
-                        onChange={(e) => {
-                            setFirstname(e.target.value)
-                        }}
-                    />
-                    <div className="valid-feedback">
-                        Looks good!
-                    </div>
-                </div>
+        <div className="container my-5">
+            <div className="card shadow-lg border-0">
+                <div className="card-body p-4">
+                    <h3 className="mb-4 text-center">
+                        Photographer Profile
+                    </h3>
 
-                <div className="col-md-4">
-                    <label htmlFor="validationCustom02" className="form-label">
-                        Last name
-                    </label>
-                    <input
-                        type="text"
-                        className="form-control"
-                        id="validationCustom02"
-                        defaultValue="Otto"
-                        required
-                        onChange={(e) => {
-                            setLastname(e.target.value)
-                        }}
-                    />
-                    <div className="valid-feedback">
-                        Looks good!
-                    </div>
-                </div>
-                <div className="col-md-4">
-                    <label htmlFor="validationCustomUsername" className="form-label">
-                        email
-                    </label>
-                    <div className="input-group has-validation">
-                        <input
-                            type="email"
-                            className="form-control"
-                            id="validationCustomUsername"
-                            aria-describedby="inputGroupPrepend"
-                            required
-                            onChange={(e) => {
-                                setEmail(e.target.value)
-                            }}
-                        />
-                        <div className="invalid-feedback">
-                            Please choose a email.
+                    <form className="row g-4" onSubmit={handleSubmit} noValidate>
+
+                        {/* First name */}
+                        <div className="col-md-6">
+                            <label className="form-label">First Name</label>
+                            <input
+                                type="text"
+                                className="form-control"
+                                placeholder="Enter your first name"
+                                required
+                                onChange={(e) => setFirstname(e.target.value)}
+                            />
                         </div>
-                    </div>
-                </div>
 
-                <div className="col-md-6">
-                    <label htmlFor="validationCustom03" className="form-label">
-                        Bio
-                    </label>
-                    <input
-                        type="text"
-                        className="form-control"
-                        id="validationCustom03"
-                        required
-                        onChange={(e) => {
-                            setBio(e.target.value)
-                        }}
-                    />
-                    <div className="invalid-feedback">
-                        Please provide some informations about you.
-                    </div>
-                </div>
-
-                <div className="col-md-3">
-                    <label htmlFor="validationCustom05" className="form-label">
-                        Your profile picture.
-                    </label>
-                    <input
-                        type="file"
-                        className="form-control"
-                        id="validationCustom05"
-                        required
-                        onChange={(e) => {
-                            setFile(e.target.files[0]);
-                        }}
-                        accept="image/*"
-                    />
-                    <div className="invalid-feedback">
-                        Please provide a valid zip.
-                    </div>
-                </div>
-
-                <div className="col-12">
-                    <div className="form-check">
-                        <input
-                            className="form-check-input"
-                            type="checkbox"
-                            id="invalidCheck"
-                            required
-                        />
-                        <label
-                            className="form-check-label"
-                            htmlFor="invalidCheck"
-                        >
-                            Agree to terms and conditions
-                        </label>
-                        <div className="invalid-feedback">
-                            You must agree before submitting.
+                        {/* Last name */}
+                        <div className="col-md-6">
+                            <label className="form-label">Last Name</label>
+                            <input
+                                type="text"
+                                className="form-control"
+                                placeholder="Enter your last name"
+                                required
+                                onChange={(e) => setLastname(e.target.value)}
+                            />
                         </div>
-                    </div>
-                </div>
 
-                <div className="col-12">
-                    <button className="btn btn-primary" type="submit">
-                        Change your information.
-                    </button>
+                        {/* Email */}
+                        <div className="col-md-12">
+                            <label className="form-label">Email Address</label>
+                            <input
+                                type="email"
+                                className="form-control"
+                                placeholder="your@email.com"
+                                required
+                                onChange={(e) => setEmail(e.target.value)}
+                            />
+                        </div>
+
+                        {/* Bio */}
+                        <div className="col-md-12">
+                            <label className="form-label">Short Bio</label>
+                            <textarea
+                                className="form-control"
+                                rows="3"
+                                placeholder="Tell us about yourself and your photography style..."
+                                required
+                                onChange={(e) => setBio(e.target.value)}
+                            />
+                        </div>
+
+                        {/* Upload image */}
+                        <div className="col-md-12">
+                            <label className="form-label">Profile Photo</label>
+                            <input
+                                type="file"
+                                className="form-control"
+                                accept="image/*"
+                                required
+                                onChange={(e) => setFile(e.target.files[0])}
+                            />
+                            <small className="text-muted">
+                                Upload a clear portrait photo (JPG, PNG).
+                            </small>
+                        </div>
+
+                        {/* Checkbox */}
+                        <div className="col-12">
+                            <div className="form-check">
+                                <input
+                                    className="form-check-input"
+                                    type="checkbox"
+                                    required
+                                    id="termsCheck"
+                                />
+                                <label className="form-check-label" htmlFor="termsCheck">
+                                    I agree to the terms and conditions
+                                </label>
+                            </div>
+                        </div>
+
+                        {/* Submit */}
+                        <div className="col-12 text-center">
+                            <button
+                                className="btn btn-dark px-5 py-2"
+                                type="submit"
+                            >
+                                Save Profile
+                            </button>
+                        </div>
+
+                    </form>
                 </div>
-            </form>
-        </>
+            </div>
+        </div>
     );
 }

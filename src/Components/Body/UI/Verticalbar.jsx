@@ -1,36 +1,53 @@
 import React, { useState } from "react";
 import menu from '../img/ menu.svg'
 import { useNavigate } from "react-router-dom";
+
 const CustomNav = ({ li }) => {
-    const [window, setWindow] = useState(false);
+    const [collapsed, setCollapsed] = useState(false);
     const navigate = useNavigate();
-    let openClose = () => {
-        if (window === false) {
-            setWindow(true);
-        } else {
-            setWindow(false);
-        }
+
+    const toggleMenu = () => {
+        setCollapsed(!collapsed);
     };
+
     return (
         <div className="position-fixed">
-            <nav className="navbar-menu" style={{ width: window === false ? "14rem" : "4rem" }}>
-                <div className="burger" onClick={() => openClose()}>
-                    <img src={menu} alt="burger" />
+            <nav
+                className="navbar-menu shadow-sm"
+                style={{ width: collapsed ? "4rem" : "14rem" }}
+            >
+                {/* Burger */}
+                <div
+                    className="burger d-flex justify-content-center align-items-center"
+                    onClick={toggleMenu}
+                    aria-label="Toggle navigation menu"
+                >
+                    <img src={menu} alt="Menu" />
                 </div>
+
+                {/* Menu items */}
                 <div className="burger_items">
-                    <ul className="navbar__list" >
+                    <ul className="navbar__list">
                         {li.map((item, i) => (
-                            <div className="navbar__li-box" key={i} onClick={() => {
-                                navigate(item[2])
-                            }}>
+                            <div
+                                key={i}
+                                className="navbar__li-box d-flex align-items-center"
+                                onClick={() => navigate(item[2])}
+                                style={{ cursor: "pointer" }}
+                            >
                                 <img
                                     src={item[1]}
-                                    alt={item[1]}
-                                    style={{ paddingLeft: window === false ? 27 : 17 }}
+                                    alt={item[0]}
+                                    style={{
+                                        paddingLeft: collapsed ? 17 : 27
+                                    }}
                                 />
+
                                 <li
-                                    className="navbar__li"
-                                    style={{ display: window === false ? "inline-block" : "none" }}
+                                    className="navbar__li ms-2"
+                                    style={{
+                                        display: collapsed ? "none" : "inline-block"
+                                    }}
                                 >
                                     {item[0]}
                                 </li>

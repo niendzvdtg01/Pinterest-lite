@@ -1,4 +1,5 @@
 import './components.scss'
+
 export default function Footer() {
     return (
         <>
@@ -6,9 +7,12 @@ export default function Footer() {
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-4 footer-section">
-                            <div className="footer-logo">CompanyName</div>
-                            <p className="footer-about">We are dedicated to providing the best service to our customers. Our mission
-                                is to create innovative solutions that make a difference in people's lives.</p>
+                            <div className="footer-logo">VisualGallery</div>
+                            <p className="footer-about">
+                                VisualGallery is a creative platform dedicated to showcasing high-quality
+                                photography. We help designers, creators, and brands find inspiring visuals
+                                for every project.
+                            </p>
                             <div className="social-links">
                                 <a href="#" className="social-icon"><i className="fab fa-facebook-f"></i></a>
                                 <a href="#" className="social-icon"><i className="fab fa-twitter"></i></a>
@@ -18,30 +22,33 @@ export default function Footer() {
                         </div>
 
                         <div className="col-lg-2 col-md-6 footer-section">
-                            <h5>Quick Links</h5>
+                            <h5>Explore</h5>
                             <ul className="footer-links">
-                                <li><a href="#">About Us</a></li>
-                                <li><a href="#">Services</a></li>
-                                <li><a href="#">Products</a></li>
-                                <li><a href="#">Contact</a></li>
-                                <li><a href="#">Careers</a></li>
+                                <li><a href="#">Gallery</a></li>
+                                <li><a href="#">Collections</a></li>
+                                <li><a href="#">Popular Photos</a></li>
+                                <li><a href="#">Categories</a></li>
+                                <li><a href="#">Featured Artists</a></li>
                             </ul>
                         </div>
 
                         <div className="col-lg-2 col-md-6 footer-section">
-                            <h5>Support</h5>
+                            <h5>Resources</h5>
                             <ul className="footer-links">
-                                <li><a href="#">FAQ</a></li>
                                 <li><a href="#">Help Center</a></li>
+                                <li><a href="#">Usage License</a></li>
+                                <li><a href="#">Contributor Guide</a></li>
                                 <li><a href="#">Privacy Policy</a></li>
-                                <li><a href="#">Terms of Service</a></li>
-                                <li><a href="#">Contact Support</a></li>
+                                <li><a href="#">Terms & Conditions</a></li>
                             </ul>
                         </div>
 
                         <div className="col-lg-4 footer-section">
-                            <h5>Newsletter</h5>
-                            <p className="footer-about">Subscribe to our newsletter for updates, news, and exclusive offers.</p>
+                            <h5>Stay Inspired</h5>
+                            <p className="footer-about">
+                                Join our newsletter to receive weekly photography inspiration,
+                                featured collections, and creative insights directly to your inbox.
+                            </p>
                             <div className="footer-newsletter">
                                 <input type="email" placeholder="Enter your email" />
                                 <button className="newsletter-btn">
@@ -57,7 +64,7 @@ export default function Footer() {
                             <li><a href="#">Terms of Service</a></li>
                             <li><a href="#">Cookie Policy</a></li>
                         </ul>
-                        <p>© 2024 CompanyName. All rights reserved.</p>
+                        <p>© 2024 VisualGallery. All rights reserved.</p>
                     </div>
                 </div>
             </footer>
