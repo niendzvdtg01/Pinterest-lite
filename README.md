@@ -1,6 +1,8 @@
 # 📸 T-Wild – Image Sharing Platform (Pinterest-Lite)
 
 T-Wild là nền tảng chia sẻ và khám phá hình ảnh hiện đại cho phép người dùng tải lên, quản lý và tổ chức các bộ sưu tập ảnh sáng tạo. Ứng dụng được xây dựng theo kiến trúc **Full-Stack Web Application** sử dụng Spring Boot cho backend và React + Vite cho frontend.
+Link:[🚀 Live Demo](https://twild-gallery.vercel.app)
+
 
 ---
 
@@ -37,6 +39,8 @@ T-Wild là nền tảng chia sẻ và khám phá hình ảnh hiện đại cho p
   - Game
   - Health
 - Xem gallery theo danh mục
+
+![Category](pictures/category.jpg)
 - Lưu ảnh vào bộ sưu tập cá nhân
 ![Collection](pictures/collection.jpg)
 ---
