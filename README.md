@@ -74,15 +74,17 @@ T-Wild là nền tảng chia sẻ và khám phá hình ảnh hiện đại cho p
 - Unsplash API
 ## 🏗 System Architecture
 
+```text
 Frontend (React + Vite)
-│
-│ REST API
-▼
+        │
+        │ REST API
+        ▼
 Backend (Spring Boot)
-│
-├── Database (User + Metadata)
-├── Cloudinary (Image Storage)
-└── Unsplash API
+        │
+        ├── Database (User + Metadata)
+        ├── Cloudinary (Image Storage)
+        └── Unsplash API
+```
 ## 📈 Future Improvements
 
 - Like / Comment system
