@@ -3,6 +3,7 @@ import React, { useContext, useState } from "react";
 import { useForm } from "@formspree/react";
 import { useNavigate } from 'react-router-dom';
 import { FeedbackContext } from '../API/FeedbackContext';
+import { Spinner } from './Spinner';
 
 export function FeedbackForm() {
     const [state, handleSubmit] = useForm("FORM_ID");
@@ -134,9 +135,9 @@ export function FeedbackForm() {
 
             {/* Actions */}
             <div className="fs-button-group">
-                <button className="fs-button" type="submit">
+                {context.loading ? <Spinner /> : <button className="fs-button" type="submit">
                     Submit Feedback
-                </button>
+                </button>}
                 <button
                     type="button"
                     className="fs-button fs-secondary"

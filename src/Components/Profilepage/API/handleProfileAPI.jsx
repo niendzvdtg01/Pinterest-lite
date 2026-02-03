@@ -4,6 +4,7 @@ import { UploadPhotoContext } from "./UploadPhotoContext";
 import { fetchUpdateAPI } from "./UpdateProfile.api";
 import { getUser } from "./GetUserAPI.api";
 import { toast } from "react-toastify";
+import { logout } from "./LogoutAPI.api";
 
 export default function ProfileProvider({ children }) {
     const [uploadPhoto, setUploadPhoto] = useState([]);
@@ -40,12 +41,20 @@ export default function ProfileProvider({ children }) {
             console.error("Loi: ", err);
         }
     }, [])
+    const Logout = useCallback(async () => {
+        try {
+            const res = await logout();
+            return res.data
+        } catch (err) {
+            throw new Error("loi: ", err)
+        }
+    }, [])
     useEffect(() => {
         fetchAPI()
         getAPI()
     }, [fetchAPI, getAPI]);
     return (
-        <UploadPhotoContext.Provider value={{ uploadPhoto, loading, updateUser, uploadAPI, user }}>
+        <UploadPhotoContext.Provider value={{ uploadPhoto, loading, updateUser, uploadAPI, user, Logout }}>
             {children}
         </UploadPhotoContext.Provider>
     )

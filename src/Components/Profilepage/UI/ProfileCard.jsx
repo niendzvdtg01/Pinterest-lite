@@ -4,10 +4,14 @@ import { useNavigate } from "react-router-dom"
 import { UploadPhotoContext } from "../API/UploadPhotoContext";
 
 export default function ProfileCard() {
-    const navigate = useNavigate();
+    const navigate = useNavigate();;
     const context = useContext(UploadPhotoContext);
     const user = context.user;
-
+    const handleLogout = (e) => {
+        e.preventDefault();
+        context.Logout();
+        navigate("/")
+    }
     return (
         <div className="container d-flex justify-content-center mt-5">
             <div className="card shadow-lg border-0 text-center" style={{ width: "380px" }}>
@@ -50,7 +54,7 @@ export default function ProfileCard() {
                             Go to Dashboard
                         </button>
 
-                        <button className="btn btn-outline-secondary">
+                        <button className="btn btn-outline-secondary" onClick={handleLogout}>
                             Logout
                         </button>
                     </div>

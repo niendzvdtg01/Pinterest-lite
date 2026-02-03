@@ -4,16 +4,20 @@ import java.util.List;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 import com.gallery.backend.security.AuthFilter;
 
+import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 
 @Configuration
@@ -35,6 +39,19 @@ public class SecurityConfig {
                                 .formLogin(form -> form.disable())
                                 .httpBasic(basic -> basic.disable())
                                 .addFilterBefore(authFilter, UsernamePasswordAuthenticationFilter.class)
+                                .logout(logout -> logout
+                                                .logoutUrl("/logout")
+                                                .logoutSuccessHandler((request, response, authentication) -> {
+
+                                                        Cookie cookie = new Cookie("access_cookie", null);
+                                                        cookie.setHttpOnly(true);
+                                                        cookie.setSecure(false); // true nếu HTTPS
+                                                        cookie.setPath("/");
+                                                        cookie.setMaxAge(0); // 💣 xoá cookie
+
+                                                        response.addCookie(cookie);
+                                                        response.setStatus(HttpServletResponse.SC_OK);
+                                                }))
                                 // Thay vì http.cors(), dùng cách đọc CorsConfig tự động
                                 .cors(cors -> cors.configurationSource(corsConfigurationSource()));
 

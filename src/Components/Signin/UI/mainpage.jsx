@@ -9,13 +9,14 @@ import { useState } from 'react';
 import SigninPopup from './SigninPopup';
 import { Navigate, useNavigate } from 'react-router-dom';
 import useLogin from '../API/UserAPI';
+import { Loading } from './Loading';
 
 export default function Login() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [click, setClick] = useState(false);
     const naviagate = useNavigate();
-    const { login, error } = useLogin();
+    const { login, error, loading } = useLogin();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -81,6 +82,7 @@ export default function Login() {
                 </Container >
             </div >
             <SigninPopup trigger={click} setTrigger={setClick} />
+            {loading ? <Loading /> : ""}
         </>
     );
 }

@@ -4,6 +4,7 @@ import { useState } from "react";
 export default function useLogin() {
     const [error, setError] = useState(null);
     const url = "http://localhost:8080/auth/login";
+    const [loading, setLoading] = useState(false)
     const login = async (username, password) => {
         const userData = {
             username: username,
@@ -13,6 +14,7 @@ export default function useLogin() {
         console.log("Login URL:", url);
 
         try {
+            setLoading(true);
             const response = await axios.post(url, userData,
                 {
                     headers: { "Content-Type": "application/json" },
@@ -30,7 +32,9 @@ export default function useLogin() {
                     ?? "Unknown error";
             setError(String(message));
             throw err;
+        } finally {
+            setLoading(false);
         }
     }
-    return { login, error };
+    return { login, error, loading };
 }

@@ -3,12 +3,14 @@ import img from '../img/image-regular-full.svg'
 import { useRef, useState } from 'react'
 import axios from 'axios';
 import { toast, ToastContainer } from 'react-toastify';
+import { Spinner } from './Spinner';
 export default function UploadPopup(props) {
     const fileInput = useRef(null);
     const [filename, setFilename] = useState([])
     const [file, setFile] = useState(null);
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
+    const [loading, setLoading] = useState(false);
     const handleFileInput = (event) => {
         const fileUpload = event.target.files[0];
         setFilename(fileUpload);
@@ -19,6 +21,7 @@ export default function UploadPopup(props) {
     }
     const UploadAPI = async () => {
         try {
+            setLoading(true)
             const formData = new FormData();
             formData.append("file", file);
             formData.append("title", title)
@@ -35,6 +38,8 @@ export default function UploadPopup(props) {
             })
         } catch (err) {
             console.log(err);
+        } finally {
+            setLoading(false);
         }
     }
     //Tao dieu kien de hien thi popup
@@ -67,9 +72,9 @@ export default function UploadPopup(props) {
                 <div className='upload-btn d-flex'>
                     <button onClick={handleClick} style={{ margin: "0 auto" }}>Choose file</button>
                 </div>
-                <div className='upload-btn d-flex m-1'>
+                {loading ? <Spinner /> : <div className='upload-btn d-flex m-1'>
                     <button onClick={UploadAPI} style={{ margin: "0 auto" }}>Upload file</button>
-                </div>
+                </div>}
                 <div className='d-flex'>
                     <p style={{ margin: "0 auto" }}>{filename.name || "no image chosen"}</p>
                 </div>
