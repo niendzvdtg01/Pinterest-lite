@@ -1,39 +1,62 @@
 📸 T-Wild – Image Sharing Platform (Pinterest-Lite)
 
-T-Wild là một nền tảng chia sẻ hình ảnh hiện đại, cho phép người dùng khám phá, tải lên, quản lý và tổ chức các bộ sưu tập ảnh sáng tạo. Ứng dụng được xây dựng theo kiến trúc Full-Stack với Spring Boot cho backend và React + Vite cho frontend, tích hợp các dịch vụ bên thứ ba như Cloudinary và Unsplash.
+T-Wild là một nền tảng chia sẻ và khám phá hình ảnh hiện đại, cho phép người dùng tải lên, quản lý và tổ chức các bộ sưu tập ảnh sáng tạo. Ứng dụng được phát triển theo kiến trúc Full-Stack Web Application, sử dụng:
+Backend: Spring Boot (RESTful API)
 
-🚀 Tính năng chính
+Frontend: React + Vite
+
+Cloud Storage: Cloudinary
+
+External API: Unsplash
+
+T-Wild tập trung vào trải nghiệm người dùng mượt mà, quản lý nội dung hiệu quả và tích hợp dữ liệu từ nhiều nguồn hình ảnh.
+
+🚀 Core Features
 👤 Authentication & User Management
 
-Đăng ký / Đăng nhập người dùng
+Hệ thống xác thực và quản lý người dùng đảm bảo bảo mật và cá nhân hóa trải nghiệm.
 
-JWT Authentication & Authorization
+Features:
 
-Quản lý hồ sơ cá nhân
+Đăng ký và đăng nhập tài khoản
 
-Upload & cập nhật ảnh đại diện
+Xác thực bằng JWT Authentication
 
-Logout & bảo mật session
+Phân quyền truy cập (Authorization)
 
-🖼️ Quản lý hình ảnh
+Quản lý hồ sơ người dùng
 
-Upload ảnh lên Cloudinary
+Upload và cập nhật ảnh đại diện
 
-Lưu metadata ảnh
+Logout và bảo vệ session
 
-Xem thư viện ảnh dạng Masonry / Grid layout
+🖼️ Image Management
+
+Cho phép người dùng quản lý toàn bộ thư viện hình ảnh cá nhân.
+
+Features:
+
+Upload hình ảnh lên Cloudinary
+
+Lưu trữ metadata hình ảnh
+
+Hiển thị gallery theo:
+
+Masonry Layout
+
+Grid Layout
 
 Tìm kiếm ảnh theo từ khóa
 
-Hiển thị thông tin tác giả ảnh
+Hiển thị thông tin tác giả
 
-Xóa / quản lý ảnh cá nhân
+Xóa và quản lý ảnh cá nhân
 
 📚 Collections & Categories
 
-Tạo và quản lý bộ sưu tập ảnh
+Tổ chức hình ảnh thành các bộ sưu tập giúp người dùng quản lý nội dung hiệu quả.
 
-Phân loại ảnh theo Category:
+Supported Categories:
 
 Nature
 
@@ -51,32 +74,48 @@ Game
 
 Health
 
-Xem gallery theo danh mục
+Features:
+
+Tạo và quản lý bộ sưu tập ảnh
+
+Phân loại ảnh theo danh mục
+
+Xem gallery theo từng category
 
 Lưu ảnh vào bộ sưu tập cá nhân
 
-🔍 Khám phá ảnh
+🔍 Image Discovery
+
+Hỗ trợ người dùng khám phá hình ảnh từ nhiều nguồn dữ liệu.
+
+Features:
 
 Tích hợp Unsplash API
 
-Gợi ý ảnh trending
+Hiển thị ảnh trending
 
 Tìm kiếm ảnh từ nguồn bên ngoài
 
 Kết hợp dữ liệu nội bộ và Unsplash
 
-⭐ Feedback & Rating
+⭐ Feedback & Rating System
 
-Người dùng gửi đánh giá hệ thống
+Thu thập phản hồi người dùng để cải thiện chất lượng dịch vụ.
 
-Thang điểm NPS (0 → 10)
+Features:
 
-Thu thập góp ý cải thiện dịch vụ
+Gửi đánh giá trải nghiệm hệ thống
+
+Thang đo Net Promoter Score (NPS) (0 – 10)
+
+Thu thập góp ý cải tiến
 
 📊 Dashboard
 
-Thống kê ảnh người dùng
+Cung cấp tổng quan dữ liệu và hỗ trợ quản lý nội dung.
+
+Features:
+
+Thống kê số lượng ảnh người dùng
 
 Quản lý nội dung đã upload
-
-Điều hướng nhanh các tính năng
