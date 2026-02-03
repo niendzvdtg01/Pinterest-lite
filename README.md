@@ -12,7 +12,7 @@ T-Wild là nền tảng chia sẻ và khám phá hình ảnh hiện đại cho p
 - Quản lý hồ sơ người dùng
 - Upload & cập nhật ảnh đại diện
 - Logout & bảo mật session
-
+![Homepage](pictures/BG.png)
 ---
 
 ### 🖼️ Image Management
