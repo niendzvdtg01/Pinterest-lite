@@ -41,7 +41,7 @@ T-Wild là nền tảng chia sẻ và khám phá hình ảnh hiện đại cho p
 ![Collection](pictures/collection.jpg)
 ---
 
-### 🔍 Image Discovery
+### 🔍 Profile Management
 - Quản lý profile cá nhân
 - Hiển thị ảnh đã upload
 ![Porfile](pictures/profile.jpg)
@@ -72,12 +72,23 @@ T-Wild là nền tảng chia sẻ và khám phá hình ảnh hiện đại cho p
 ### External Services
 - Cloudinary
 - Unsplash API
+## 🏗 System Architecture
 
-## 📦 Installation
+```text
+Frontend (React + Vite)
+        │
+        │ REST API
+        ▼
+Backend (Spring Boot)
+        │
+        ├── Database (User + Metadata)
+        ├── Cloudinary (Image Storage)
+        └── Unsplash API
+```
+## 📈 Future Improvements
 
-### 1️⃣ Clone repository
-
-
-
-## 🏗️ System Architecture
-
+- Like / Comment system
+- Follow users
+- AI image recommendation
+- Real-time notification
+- Admin moderation dashboard
