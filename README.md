@@ -72,12 +72,3 @@ T-Wild là nền tảng chia sẻ và khám phá hình ảnh hiện đại cho p
 ### External Services
 - Cloudinary
 - Unsplash API
-
-## 📦 Installation
-
-### 1️⃣ Clone repository
-
-
-
-## 🏗️ System Architecture
-
