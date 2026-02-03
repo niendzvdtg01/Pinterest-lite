@@ -12,7 +12,7 @@ T-Wild là nền tảng chia sẻ và khám phá hình ảnh hiện đại cho p
 - Quản lý hồ sơ người dùng
 - Upload & cập nhật ảnh đại diện
 - Logout & bảo mật session
-![Homepage](pictures/BG.png)
+![Homepage](pictures/BG.jpg)
 ---
 
 ### 🖼️ Image Management
@@ -22,7 +22,7 @@ T-Wild là nền tảng chia sẻ và khám phá hình ảnh hiện đại cho p
 - Tìm kiếm ảnh theo từ khóa
 - Hiển thị thông tin tác giả ảnh
 - Xóa / quản lý ảnh cá nhân
-
+![Gallery](pictures/main.jpg)
 ---
 
 ### 📚 Collections & Categories
@@ -38,30 +38,20 @@ T-Wild là nền tảng chia sẻ và khám phá hình ảnh hiện đại cho p
   - Health
 - Xem gallery theo danh mục
 - Lưu ảnh vào bộ sưu tập cá nhân
-
+![Collection](pictures/collection.jpg)
 ---
 
 ### 🔍 Image Discovery
-- Tích hợp Unsplash API
-- Gợi ý ảnh trending
-- Tìm kiếm ảnh từ nguồn bên ngoài
-- Kết hợp dữ liệu nội bộ và Unsplash
-
+- Quản lý profile cá nhân
+- Hiển thị ảnh đã upload
+![Porfile](pictures/profile.jpg)
 ---
 
 ### ⭐ Feedback & Rating
 - Người dùng gửi đánh giá hệ thống
 - Thang điểm NPS (0 → 10)
 - Thu thập góp ý cải thiện dịch vụ
-
----
-
-### 📊 Dashboard
-- Thống kê ảnh người dùng
-- Quản lý nội dung đã upload
-- Điều hướng nhanh các tính năng
-
-
+![Feedback](pictures/feedback.jpg)
 ---
 
 ## 🛠️ Tech Stack
